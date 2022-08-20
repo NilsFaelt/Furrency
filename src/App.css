@@ -1,0 +1,17 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.titleWrapper{
+  font-family: 'Bebas Neue', cursive;
+  margin-top: 5vh;
+  text-align: center;
+}
+.homeHr{
+  margin: 0 auto;
+  margin-top: 1vh;
+  width: 95vw;
+}
+button{
+  border: 20px, solid, rgb(208, 15, 15);
+}
