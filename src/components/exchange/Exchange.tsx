@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Styles from "./exchange.module.css";
+import { SwitchHorizontalIcon } from "@heroicons/react/outline";
 
 interface ExchangedRate {
   rate: number;
@@ -11,12 +12,18 @@ const Exchange = () => {
   const [exchangedRate, setExchangedRate] = useState<ExchangedRate | null>(
     null
   );
-  const [fromRate, setFromRate] = useState("us");
+  const [fromRate, setFromRate] = useState("usd");
   const [toRate, setToRate] = useState("nok");
   const [amount, setAmount] = useState<any>(1);
   const [toogleInfo, setToogleInfo] = useState<boolean>(false);
   console.log(exchangedRate);
 
+  const switchRates = () => {
+    const fromHolder = fromRate;
+    const toHolder = toRate;
+    setToRate(fromHolder);
+    setFromRate(toHolder);
+  };
   const fetchAllRAtes = async () => {
     try {
       const response = await axios.get(
@@ -34,10 +41,12 @@ const Exchange = () => {
 
   return (
     <div className={Styles.outerDiv}>
+      <SwitchHorizontalIcon onClick={switchRates} className={Styles.switch} />
       <form className={Styles.container}>
         <div className={Styles.searchDiv}>
           <label htmlFor=''>From</label>
           <input
+            value={fromRate}
             onChange={(e) => setFromRate(e.target.value)}
             className={Styles.input}
             type='text'
@@ -48,6 +57,7 @@ const Exchange = () => {
         <div className={Styles.searchDiv}>
           <label htmlFor=''>To</label>
           <input
+            value={toRate}
             onChange={(e) => setToRate(e.target.value)}
             className={Styles.input}
             type='text'
