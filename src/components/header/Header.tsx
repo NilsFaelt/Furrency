@@ -16,6 +16,7 @@ const Header: React.FC<Props> = ({
   setToogleMenu,
   toogleMenu,
 }) => {
+  console.log(flagUrl);
   return (
     <header className={Styles.container}>
       <MenuIcon

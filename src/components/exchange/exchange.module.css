@@ -70,18 +70,33 @@
     cursor: pointer;
 }
 .countryCodes{
-    height: 10vh;
-    width: 10vw;
+    height: 14vh;
+    width: clamp(70px, 7vw, 7vw);
     overflow: scroll;
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
+    /* padding: 1vw; */
+    margin: 1vw;
+    color: white;
     
 }
 .countryCodesTo{
-    height: 10vh;
-    width: 10vw;
+    height: 14vh;
+    width: clamp(70px, 7vw, 7vw);
     overflow: scroll;
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
+    margin: 1vw;
+    color: white;
 }
+
 .curencyCodeText{
     cursor: pointer;
+}
+.curencyCodeText:hover{
+    width: 100%;
+    background-color: rgb(248, 235, 66);
+    color: black;
 }
 .amountAndCodesDiv{
     display: flex;
@@ -89,4 +104,12 @@
 }
 .placeholderDiv{
     width: 10vw;
+}
+.currencyInfoDiv{
+    margin-top: 2vh;
+    border: 2px solid rgba(128, 128, 128, 0.453);
+    border-radius: 5px;
+    padding: 3vw;
+    font-size: calc(10px + 1vw);
+    font-family: 'Courier New', Courier, monospace;
 }

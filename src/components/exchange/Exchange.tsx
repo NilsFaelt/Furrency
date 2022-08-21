@@ -136,17 +136,19 @@ const Exchange = () => {
             type='number'
             placeholder='Amount'
           />
-          <p>
-            {amount + ":" + " "}{" "}
-            {currenccyRollOutFrom?.length === 1
-              ? currenccyRollOutFrom[0]?.symbol
-              : null}
-            <br /> Gives You <br />
-            {exchangedRate ? exchangedRate.rate * amount + ":" + " " : null}
-            {currenccyRollOutTo?.length === 1
-              ? currenccyRollOutTo[0]?.symbol
-              : null}
-          </p>
+          <div className={Styles.currencyInfoDiv}>
+            <p style={{ marginBottom: "2vh" }}>Exchange Rate:</p>
+            <p>
+              {amount + ""}
+              {currenccyRollOutFrom?.length === 1
+                ? currenccyRollOutFrom[0]?.symbol + " "
+                : null}
+              = {exchangedRate ? exchangedRate.rate * amount + " " : null}
+              {currenccyRollOutTo?.length === 1
+                ? currenccyRollOutTo[0]?.symbol
+                : null}
+            </p>
+          </div>
         </div>
         {currenccyRollOutTo && toRate && toRate.length !== 3 ? (
           <div className={Styles.countryCodesTo}>
