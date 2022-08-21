@@ -38,7 +38,9 @@
 .input:focus{
     outline: none;
     box-shadow: 1px 1px 10px white;
+    font-size: calc(12px + 0.3vw);
 }
 .input::placeholder{
     text-align: center;
+    font-size: calc(12px + 0.3vw);
 }
