@@ -1,16 +1,27 @@
 import Styles from "./header.module.css";
 import { Button } from "@mui/material";
 import { MenuIcon } from "@heroicons/react/outline";
+import { useState } from "react";
 
 interface Props {
   flagUrl: string;
   setChooseFlag: (flag: string) => void;
+  setToogleMenu: (flag: boolean) => void;
+  toogleMenu: boolean;
 }
 
-const Header: React.FC<Props> = ({ flagUrl, setChooseFlag }) => {
+const Header: React.FC<Props> = ({
+  flagUrl,
+  setChooseFlag,
+  setToogleMenu,
+  toogleMenu,
+}) => {
   return (
     <header className={Styles.container}>
-      <MenuIcon className={Styles.burger} />
+      <MenuIcon
+        onClick={() => setToogleMenu(!toogleMenu)}
+        className={Styles.burger}
+      />
       <div className={Styles.copuntryDiv}>
         <input
           onChange={(e) => setChooseFlag(e.target.value)}

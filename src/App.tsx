@@ -5,11 +5,13 @@ import Header from "./components/header/Header";
 import { fetchAllRAtes } from "./functions/fetchData";
 import { Routes, Route } from "react-router-dom";
 import Exchange from "./components/exchange/Exchange";
+import Menu from "./components/menu/Menu";
 
 function App() {
   const [allRates, setAllRates] = useState<any>([]);
   const [flagUrl, setFlagUrl] = useState<string>("");
-  const [choseFlag, setChooseFlag] = useState<string | null>("sweden");
+  const [choseFlag, setChooseFlag] = useState<string | null>("nor");
+  const [toogleMenu, setToogleMenu] = useState<boolean>(false);
 
   // const fetchAllRAtes = async () => {
   //   try {
@@ -41,7 +43,14 @@ function App() {
 
   return (
     <div className='App'>
-      <Header flagUrl={flagUrl} setChooseFlag={setChooseFlag} />
+      {toogleMenu ? <Menu setToogleMenu={setToogleMenu} /> : null}
+
+      <Header
+        setToogleMenu={setToogleMenu}
+        toogleMenu={toogleMenu}
+        flagUrl={flagUrl}
+        setChooseFlag={setChooseFlag}
+      />
       <div className='titleWrapper'>
         <h1>FURRENCY</h1>
         <p>exchange at the lowest rates</p>

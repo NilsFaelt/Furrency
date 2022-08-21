@@ -9,12 +9,11 @@
     top: 2vh;
     left: 2vw;
     width: calc(50px + 0.5vw);
-    color: rgb(0, 0, 0);
+    color: white;
     cursor: pointer;
+    z-index: 3;
 }
-.burger:hover{
-    color: rgb(255, 255, 255);
-}
+
 .copuntryDiv{
     display: flex;
     flex-direction: row;
