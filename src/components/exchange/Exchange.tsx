@@ -3,9 +3,15 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Styles from "./exchange.module.css";
 import { SwitchHorizontalIcon } from "@heroicons/react/outline";
+import currencyCodes from "../../json/currencyCode.json";
 
 interface ExchangedRate {
   rate: number;
+}
+interface CurrencyCodes {
+  code: string;
+  symbol?: string;
+  name?: string;
 }
 
 const Exchange = () => {
@@ -16,6 +22,12 @@ const Exchange = () => {
   const [toRate, setToRate] = useState("nok");
   const [amount, setAmount] = useState<any>(1);
   const [toogleInfo, setToogleInfo] = useState<boolean>(false);
+  const [currenccyRollOutFrom, setCurrenccyRollOutFrom] = useState<
+    CurrencyCodes[] | null
+  >(null);
+  const [currenccyRollOutTo, setCurrenccyRollOutTo] = useState<
+    CurrencyCodes[] | null
+  >(null);
   console.log(exchangedRate);
 
   const switchRates = () => {
@@ -39,9 +51,60 @@ const Exchange = () => {
     fetchAllRAtes();
   }, [fromRate, toRate]);
 
+  const filterCurrencyCodeFrom = () => {
+    setCurrenccyRollOutFrom(
+      currencyCodes.filter((code) => code.code.includes(fromRate.toUpperCase()))
+    );
+    console.log(currenccyRollOutFrom);
+  };
+
+  const filterCurrencyCodeTo = () => {
+    setCurrenccyRollOutTo(
+      currencyCodes.filter((code) => code.code.includes(toRate.toUpperCase()))
+    );
+  };
+
+  const setFromOnClick = (code: string) => {
+    setFromRate(code);
+  };
+  const setToOnClick = (code: string) => {
+    setToRate(code);
+  };
+
+  useEffect(() => {
+    filterCurrencyCodeFrom();
+  }, [fromRate]);
+  useEffect(() => {
+    filterCurrencyCodeTo();
+  }, [toRate]);
+
   return (
     <div className={Styles.outerDiv}>
       <SwitchHorizontalIcon onClick={switchRates} className={Styles.switch} />
+      {currenccyRollOutFrom && fromRate && fromRate.length !== 3 ? (
+        <div className={Styles.countryCodes}>
+          {currenccyRollOutFrom.map((code) => (
+            <p
+              className={Styles.curencyCodeText}
+              onClick={() => setFromOnClick(code.code)}
+            >
+              {code.code}
+            </p>
+          ))}
+        </div>
+      ) : null}
+      {currenccyRollOutTo && toRate && toRate.length !== 3 ? (
+        <div className={Styles.countryCodesTo}>
+          {currenccyRollOutTo.map((code) => (
+            <p
+              className={Styles.curencyCodeText}
+              onClick={() => setToOnClick(code.code)}
+            >
+              {code.code}
+            </p>
+          ))}
+        </div>
+      ) : null}
       <form className={Styles.container}>
         <div className={Styles.searchDiv}>
           <label htmlFor=''>From</label>

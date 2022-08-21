@@ -68,3 +68,23 @@
     width:calc( 15px + 1vw);
     cursor: pointer;
 }
+.countryCodes{
+    position: absolute;
+    left: 30vw;
+    top: 50vh;
+    height: 10vh;
+    width: 20vw;
+    overflow: scroll;
+    
+}
+.countryCodesTo{
+    position: absolute;
+    left: 50vw;
+    top: 50vh;
+    height: 10vh;
+    width: 20vw;
+    overflow: scroll;
+}
+.curencyCodeText{
+    cursor: pointer;
+}
