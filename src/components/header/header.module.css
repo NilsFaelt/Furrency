@@ -33,6 +33,7 @@
     text-align: center;
     box-shadow: 1px 1px 10px;
     margin-right: 2vw;
+    font-size: calc(12px + 0.3vw);
 }
 .input:focus{
     outline: none;

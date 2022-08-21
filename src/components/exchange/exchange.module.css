@@ -21,6 +21,7 @@
     margin-right: 2vw;
     margin-left: 1vw;
     margin-bottom: 2vh;
+    font-size: calc(12px + 0.3vw);
 }
 .input:focus{
     outline: none;
