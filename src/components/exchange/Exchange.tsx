@@ -81,30 +81,6 @@ const Exchange = () => {
   return (
     <div className={Styles.outerDiv}>
       <SwitchHorizontalIcon onClick={switchRates} className={Styles.switch} />
-      {currenccyRollOutFrom && fromRate && fromRate.length !== 3 ? (
-        <div className={Styles.countryCodes}>
-          {currenccyRollOutFrom.map((code) => (
-            <p
-              className={Styles.curencyCodeText}
-              onClick={() => setFromOnClick(code.code)}
-            >
-              {code.code}
-            </p>
-          ))}
-        </div>
-      ) : null}
-      {currenccyRollOutTo && toRate && toRate.length !== 3 ? (
-        <div className={Styles.countryCodesTo}>
-          {currenccyRollOutTo.map((code) => (
-            <p
-              className={Styles.curencyCodeText}
-              onClick={() => setToOnClick(code.code)}
-            >
-              {code.code}
-            </p>
-          ))}
-        </div>
-      ) : null}
       <form className={Styles.container}>
         <div className={Styles.searchDiv}>
           <label htmlFor=''>From</label>
@@ -137,18 +113,57 @@ const Exchange = () => {
           i
         </p>
       </form>
-      <div>
-        <input
-          onChange={(e) => setAmount(e.target.value)}
-          className={Styles.input}
-          type='number'
-          placeholder='Amount'
-        />
-        <p>
-          {amount}: {fromRate} <br /> Gives You <br />
-          {exchangedRate ? exchangedRate.rate * amount : null}: {toRate}
-        </p>
+
+      <div className={Styles.amountAndCodesDiv}>
+        {currenccyRollOutFrom && fromRate && fromRate.length !== 3 ? (
+          <div className={Styles.countryCodes}>
+            {currenccyRollOutFrom.map((code) => (
+              <p
+                className={Styles.curencyCodeText}
+                onClick={() => setFromOnClick(code.code)}
+              >
+                {code.code}
+              </p>
+            ))}
+          </div>
+        ) : (
+          <div className={Styles.placeholderDiv}></div>
+        )}
+        <div>
+          <input
+            onChange={(e) => setAmount(e.target.value)}
+            className={Styles.input}
+            type='number'
+            placeholder='Amount'
+          />
+          <p>
+            {amount + ":" + " "}{" "}
+            {currenccyRollOutFrom?.length === 1
+              ? currenccyRollOutFrom[0]?.symbol
+              : null}
+            <br /> Gives You <br />
+            {exchangedRate ? exchangedRate.rate * amount + ":" + " " : null}
+            {currenccyRollOutTo?.length === 1
+              ? currenccyRollOutTo[0]?.symbol
+              : null}
+          </p>
+        </div>
+        {currenccyRollOutTo && toRate && toRate.length !== 3 ? (
+          <div className={Styles.countryCodesTo}>
+            {currenccyRollOutTo.map((code) => (
+              <p
+                className={Styles.curencyCodeText}
+                onClick={() => setToOnClick(code.code)}
+              >
+                {code.code}
+              </p>
+            ))}
+          </div>
+        ) : (
+          <div className={Styles.placeholderDiv}></div>
+        )}
       </div>
+
       {toogleInfo ? (
         <p className={Styles.infoText}>
           Fill in your 3 letter currency code. <br /> <br /> For example: <br />{" "}
