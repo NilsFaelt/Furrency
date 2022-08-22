@@ -141,7 +141,7 @@ const Exchange = () => {
             <p className={Styles.exchnageInfoText}>
               All rates comes with a 4% exchange rate when purchasing a
               currency. <br />
-              Itas always better to buy before you leave for your trip.
+              It's always better to buy before you leave for your trip.
             </p>
             <div className={Styles.currencyInfoDiv}>
               <p style={{ fontFamily: "serif" }}>Exchange Rate:</p>
