@@ -160,7 +160,7 @@ const Exchange = () => {
                 Purchase
               </Button>
               <img
-                style={{ width: "calc(30px + 2vw)", marginTop: "4vh" }}
+                style={{ width: "calc(30px + 2vw)", marginTop: "3vh" }}
                 src={visa}
                 alt=''
               />

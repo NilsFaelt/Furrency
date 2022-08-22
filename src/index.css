@@ -9,7 +9,8 @@ button{
   }
  #uiBtn{
   margin: 0 auto;
-  margin-top: 2vh;
+  margin-top: clamp(10px, 3vh, 20px);
   width: calc(100px + 0.5vw);
-  height: clamp(30px, 4vh, 5vh);
+  height: clamp(30px, 3vh, 5vh);
+  font-size: calc(10px + 0.3vw);
  }
