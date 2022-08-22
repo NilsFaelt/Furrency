@@ -84,7 +84,9 @@ const Exchange = () => {
       <SwitchHorizontalIcon onClick={switchRates} className={Styles.switch} />
       <form className={Styles.container}>
         <div className={Styles.searchDiv}>
-          <label htmlFor=''>From</label>
+          <label style={{ color: "white" }} htmlFor=''>
+            From
+          </label>
           <input
             value={fromRate}
             onChange={(e) => setFromRate(e.target.value)}
@@ -95,7 +97,9 @@ const Exchange = () => {
           />
         </div>
         <div className={Styles.searchDiv}>
-          <label htmlFor=''>To</label>
+          <label style={{ color: "white" }} htmlFor=''>
+            To
+          </label>
           <input
             value={toRate}
             onChange={(e) => setToRate(e.target.value)}

@@ -9,7 +9,7 @@
     top: 2vh;
     left: 2vw;
     width: calc(50px + 0.5vw);
-    color: white;
+    color: rgb(0, 0, 0);
     cursor: pointer;
     z-index: 3;
 }
