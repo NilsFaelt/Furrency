@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Styles from "./exchange.module.css";
 import { SwitchHorizontalIcon } from "@heroicons/react/outline";
 import currencyCodes from "../../json/currencyCode.json";
+import visa from "../../assets/visa.png";
 
 interface ExchangedRate {
   rate: number;
@@ -113,7 +114,7 @@ const Exchange = () => {
           i
         </p>
       </form>
-
+      <div></div>
       <div className={Styles.amountAndCodesDiv}>
         {currenccyRollOutFrom && fromRate && fromRate.length !== 3 ? (
           <div className={Styles.countryCodes}>
@@ -136,18 +137,34 @@ const Exchange = () => {
             type='number'
             placeholder='Amount'
           />
-          <div className={Styles.currencyInfoDiv}>
-            <p style={{ marginBottom: "2vh" }}>Exchange Rate:</p>
-            <p>
-              {amount + ""}
-              {currenccyRollOutFrom?.length === 1
-                ? currenccyRollOutFrom[0]?.symbol + " "
-                : null}
-              = {exchangedRate ? exchangedRate.rate * amount + " " : null}
-              {currenccyRollOutTo?.length === 1
-                ? currenccyRollOutTo[0]?.symbol
-                : null}
+          <div className={Styles.amountAndCodesDivWrapper}>
+            <p className={Styles.exchnageInfoText}>
+              All rates comes with a 4% exchange rate when purchasing a
+              currency. <br />
+              Itas always better to buy before you leave for your trip.
             </p>
+            <div className={Styles.currencyInfoDiv}>
+              <p style={{ fontFamily: "serif" }}>Exchange Rate:</p>
+              <p>
+                <hr style={{ width: "100%", marginBottom: "1vh" }} />
+                {amount + ""}
+                {currenccyRollOutFrom?.length === 1
+                  ? currenccyRollOutFrom[0]?.symbol + " "
+                  : null}
+                = {exchangedRate ? exchangedRate.rate * amount + " " : null}
+                {currenccyRollOutTo?.length === 1
+                  ? currenccyRollOutTo[0]?.symbol
+                  : null}
+              </p>
+              <Button id='uiBtn' variant='contained'>
+                Purchase
+              </Button>
+              <img
+                style={{ width: "calc(30px + 2vw)", marginTop: "4vh" }}
+                src={visa}
+                alt=''
+              />
+            </div>
           </div>
         </div>
         {currenccyRollOutTo && toRate && toRate.length !== 3 ? (

@@ -7,4 +7,9 @@ button{
     background-color: rgb(242, 247, 247);
     cursor: pointer;
   }
- 
+ #uiBtn{
+  margin: 0 auto;
+  margin-top: 2vh;
+  width: calc(100px + 0.5vw);
+  height: clamp(30px, 4vh, 5vh);
+ }
