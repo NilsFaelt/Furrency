@@ -156,14 +156,12 @@ const Exchange = () => {
                   ? currenccyRollOutTo[0]?.symbol
                   : null}
               </p>
-              <Button id='uiBtn' variant='contained'>
-                Purchase
-              </Button>
-              <img
-                style={{ width: "calc(30px + 2vw)", marginTop: "3vh" }}
-                src={visa}
-                alt=''
-              />
+              <div className={Styles.btnVisaLogoDiv}>
+                <img style={{ width: "calc(30px + 2vw)" }} src={visa} alt='' />
+                <Button id='uiBtn' variant='contained'>
+                  To Cart
+                </Button>
+              </div>
             </div>
           </div>
         </div>
