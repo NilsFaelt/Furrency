@@ -16,3 +16,6 @@
 button{
   border: 20px, solid, rgb(208, 15, 15);
 }
+.underTitle{
+  font-size:calc(8px + 0.5vw);
+}

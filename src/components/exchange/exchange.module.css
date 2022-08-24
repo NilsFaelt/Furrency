@@ -24,7 +24,7 @@
     border: 2px solid rgba(128, 128, 128, 0.453);
     margin-right: 2vw;
     margin-left: 1vw;
-    margin-bottom: 2vh;
+    margin-bottom: 1vh;
     font-size: calc(12px + 0.3vw);
 }
 .input:focus{
@@ -53,6 +53,7 @@
     font-size: calc(20px + 0.5vw);
     cursor: pointer;
     margin-top: 3vh;
+    color:white;
 }
 
 .infoText{
@@ -64,7 +65,7 @@
     box-shadow: 5px 5px 5px;
     position: absolute;
     right: 20vw;
-    top: 50vh;
+    top: 60vh;
     z-index: 2;
     font-family: sans-serif;
     background-color: white;

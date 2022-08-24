@@ -53,7 +53,7 @@ function App() {
       />
       <div className='titleWrapper'>
         <h1>FURRENCY</h1>
-        <p>exchange at the lowest rates</p>
+        <p className='underTitle'>exchange at the lowest rates</p>
         <hr className='homeHr' />
         <Routes>
           <Route path='/' element={<Exchange />} />
