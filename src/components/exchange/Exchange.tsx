@@ -177,7 +177,7 @@ const Exchange = () => {
           <p style={{ fontFamily: "serif" }}>Exchange Rate:</p>
           <p style={{ textAlign: "start" }}>
             <hr style={{ width: "100%", marginBottom: "2vh" }} /> I Pay:{" "}
-            {amount + " "}
+            {amount ? amount.toFixed(2) : null + " "}
             {currenccyRollOutFrom?.length === 1
               ? currenccyRollOutFrom[0]?.symbol + " "
               : null}
