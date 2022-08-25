@@ -174,8 +174,9 @@ const Exchange = () => {
         </div>
         <div className={Styles.currencyInfoDiv}>
           <p style={{ fontFamily: "serif" }}>Exchange Rate:</p>
-          <p style={{ textAlign: "start" }}>
-            <hr style={{ width: "100%", marginBottom: "2vh" }} /> I Pay:{" "}
+          <hr style={{ width: "100%", marginBottom: "2vh" }} />
+          <div style={{ textAlign: "start" }}>
+              I Pay:{" "}
             {amount? amount: 0 }.00{' '}
             {currenccyRollOutFrom?.length === 1
               ? currenccyRollOutFrom[0]?.symbol + " "
@@ -195,7 +196,7 @@ const Exchange = () => {
                 ? currenccyRollOutFrom[0]?.symbol
                 : null}
             </p>
-          </p>
+          </div>
           <div className={Styles.btnVisaLogoDiv}>
             <img style={{ width: "calc(30px + 2vw)" }} src={visa} alt='' />
             <Button id='uiBtn' variant='contained'>
