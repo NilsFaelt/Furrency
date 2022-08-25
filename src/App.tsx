@@ -6,6 +6,7 @@ import { fetchAllRAtes } from "./functions/fetchData";
 import { Routes, Route } from "react-router-dom";
 import Exchange from "./components/exchange/Exchange";
 import Menu from "./components/menu/Menu";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const [allRates, setAllRates] = useState<any>([]);
@@ -59,6 +60,7 @@ function App() {
           <Route path='/' element={<Exchange />} />
         </Routes>
       </div>
+      <Footer />
     </div>
   );
 }

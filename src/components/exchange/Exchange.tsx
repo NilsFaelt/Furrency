@@ -19,8 +19,8 @@ const Exchange = () => {
   const [exchangedRate, setExchangedRate] = useState<ExchangedRate | null>(
     null
   );
-  const [fromRate, setFromRate] = useState("usd");
-  const [toRate, setToRate] = useState("nok");
+  const [fromRate, setFromRate] = useState("USD");
+  const [toRate, setToRate] = useState("NOK");
   const [amount, setAmount] = useState<any>(1);
   const [toogleInfo, setToogleInfo] = useState<boolean>(false);
   const [currenccyRollOutFrom, setCurrenccyRollOutFrom] = useState<
@@ -30,6 +30,7 @@ const Exchange = () => {
     CurrencyCodes[] | null
   >(null);
   console.log(exchangedRate);
+  const money = exchangedRate ? exchangedRate.rate * amount : null;
 
   const switchRates = () => {
     const fromHolder = fromRate;
@@ -89,7 +90,7 @@ const Exchange = () => {
           </label>
           <input
             value={fromRate}
-            onChange={(e) => setFromRate(e.target.value)}
+            onChange={(e) => setFromRate(e.target.value.toUpperCase())}
             className={Styles.input}
             type='text'
             placeholder='currency code'
@@ -102,7 +103,7 @@ const Exchange = () => {
           </label>
           <input
             value={toRate}
-            onChange={(e) => setToRate(e.target.value)}
+            onChange={(e) => setToRate(e.target.value.toUpperCase())}
             className={Styles.input}
             type='text'
             placeholder='currency code'
@@ -150,12 +151,12 @@ const Exchange = () => {
             <div className={Styles.currencyInfoDiv}>
               <p style={{ fontFamily: "serif" }}>Exchange Rate:</p>
               <p>
-                <hr style={{ width: "100%", marginBottom: "1vh" }} />
+                <hr style={{ width: "100%", marginBottom: "2vh" }} />
                 {amount + ""}
                 {currenccyRollOutFrom?.length === 1
                   ? currenccyRollOutFrom[0]?.symbol + " "
                   : null}
-                = {exchangedRate ? exchangedRate.rate * amount + " " : null}
+                = {money ? money.toFixed(2) + " " : null}
                 {currenccyRollOutTo?.length === 1
                   ? currenccyRollOutTo[0]?.symbol
                   : null}
