@@ -69,6 +69,7 @@
     z-index: 2;
     font-family: sans-serif;
     background-color: white;
+
 }
 .switch{
     margin-top: 5vh;
@@ -110,21 +111,28 @@
 .amountAndCodesDivWrapper{
     display: flex;
     flex-direction: row;
-    border: 2px solid rgba(128, 128, 128, 0.453);
-    border-radius: 5px;
-    padding: clamp(12px, 1vw, 1vw);
+    border-radius: 10px;
+    padding: clamp(12px, 2vw, 5vw);
     margin-top: 10vh;
     background-color: white;
-  
+
+}
+.exchnageInfoTextunderDiv{
+    width: 90%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    margin-top: 2vh;
+    padding: 1vw;
 }
 .exchnageInfoText{
     font-size: calc(8px + 0.2vw);
     font-family:Arial, Helvetica, sans-serif;
     background-color: rgb(234, 234, 234);
     padding: 2vw;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 1px 1px 1px grey;
-    width: clamp(70px, 15vw, 15vw);
+    width: clamp(130px, 15vw, 15vw);
+   
 
 }
 .amountAndCodesDiv{
@@ -142,7 +150,7 @@
     margin-top: 0vh;
     margin: 0vw 2vw 0vw 2vw;
     font-size: calc(10px + 0.5vw);
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "serif";
 
 }
 .btnVisaLogoDiv{
@@ -151,5 +159,12 @@
     flex-direction: row;
     gap: 02vw;
     bottom: 9vh;
+}
+.ratesToPay{
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 1vw;
+    margin-top: 1vh;
+    font-size: calc(8px + 0.3vw);
 }
 

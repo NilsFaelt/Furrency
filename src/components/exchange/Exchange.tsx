@@ -29,8 +29,8 @@ const Exchange = () => {
   const [currenccyRollOutTo, setCurrenccyRollOutTo] = useState<
     CurrencyCodes[] | null
   >(null);
-  console.log(exchangedRate);
   const money = exchangedRate ? exchangedRate.rate * amount : null;
+  let tott = null;
 
   const switchRates = () => {
     const fromHolder = fromRate;
@@ -143,23 +143,36 @@ const Exchange = () => {
             placeholder='Amount'
           />
           <div className={Styles.amountAndCodesDivWrapper}>
-            <p className={Styles.exchnageInfoText}>
-              All rates comes with a 4% exchange rate when purchasing a
-              currency. <br />
-              It's always better to buy before you leave for your trip.
-            </p>
+            <div className={Styles.exchnageInfoText}>
+              <p>
+                All rates comes with a 4% exchange rate when purchasing a
+                currency. <br />
+                It's always better to buy before you leave for your trip.
+              </p>
+              <div className={Styles.exchnageInfoTextunderDiv}>
+                <p>At furrency you can get your travel insuance</p>
+              </div>
+            </div>
             <div className={Styles.currencyInfoDiv}>
               <p style={{ fontFamily: "serif" }}>Exchange Rate:</p>
-              <p>
-                <hr style={{ width: "100%", marginBottom: "2vh" }} />
+              <p style={{ textAlign: "start" }}>
+                <hr style={{ width: "100%", marginBottom: "2vh" }} /> I Pay:{" "}
                 {amount + ""}
                 {currenccyRollOutFrom?.length === 1
                   ? currenccyRollOutFrom[0]?.symbol + " "
                   : null}
-                = {money ? money.toFixed(2) + " " : null}
+                <br />I Get: {money ? money.toFixed(2) + " " : null}
                 {currenccyRollOutTo?.length === 1
                   ? currenccyRollOutTo[0]?.symbol
                   : null}
+                <br />
+                <p className={Styles.ratesToPay}>
+                  Exchange Rate: {money ? money * 0.04 : null} <br />
+                  Exchange Rate Percent: 4%
+                </p>
+                <p style={{ marginTop: "2vh" }}>
+                  Total to pay: {money ? money * 1.004 : null}
+                </p>
               </p>
               <div className={Styles.btnVisaLogoDiv}>
                 <img style={{ width: "calc(30px + 2vw)" }} src={visa} alt='' />

@@ -15,7 +15,13 @@ const Footer = () => {
         <p className={Styles.contactInfo}>
           Furrecny is located at: AdamsRoad 75, LA, 667-34 California, <br />{" "}
           Phone: 00-34 76442-45 <br />
-          Mail: Furrency@gmail.com
+          <a
+            style={{ color: "white" }}
+            href='mailto:TheNewDorkerMagazine@gmail.com'
+          >
+            {" "}
+            Mail: TheNewDorkerMagazine@gmail.com
+          </a>
         </p>
       </div>
     </footer>
