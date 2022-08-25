@@ -5,6 +5,7 @@ import Styles from "./exchange.module.css";
 import { SwitchHorizontalIcon } from "@heroicons/react/outline";
 import currencyCodes from "../../json/currencyCode.json";
 import visa from "../../assets/visa.png";
+import payPal from "../../assets/payPal.svg";
 
 interface ExchangedRate {
   rate: number;
@@ -142,44 +143,6 @@ const Exchange = () => {
             type='number'
             placeholder='Amount'
           />
-          <div className={Styles.amountAndCodesDivWrapper}>
-            <div className={Styles.exchnageInfoText}>
-              <p>
-                All rates comes with a 4% exchange rate when purchasing a
-                currency. <br />
-                It's always better to buy before you leave for your trip.
-              </p>
-              <div className={Styles.exchnageInfoTextunderDiv}>hej</div>
-            </div>
-            <div className={Styles.currencyInfoDiv}>
-              <p style={{ fontFamily: "serif" }}>Exchange Rate:</p>
-              <p style={{ textAlign: "start" }}>
-                <hr style={{ width: "100%", marginBottom: "2vh" }} /> I Pay:{" "}
-                {amount + ""}
-                {currenccyRollOutFrom?.length === 1
-                  ? currenccyRollOutFrom[0]?.symbol + " "
-                  : null}
-                <br />I Get: {money ? money.toFixed(2) + " " : null}
-                {currenccyRollOutTo?.length === 1
-                  ? currenccyRollOutTo[0]?.symbol
-                  : null}
-                <br />
-                <p className={Styles.ratesToPay}>
-                  Exchange Rate: {money ? money * 0.04 : null} <br />
-                  Exchange Rate Percent: 4%
-                </p>
-                <p style={{ marginTop: "2vh" }}>
-                  Total to pay: {money ? money * 1.004 : null}
-                </p>
-              </p>
-              <div className={Styles.btnVisaLogoDiv}>
-                <img style={{ width: "calc(30px + 2vw)" }} src={visa} alt='' />
-                <Button id='uiBtn' variant='contained'>
-                  To Cart
-                </Button>
-              </div>
-            </div>
-          </div>
         </div>
         {currenccyRollOutTo && toRate && toRate.length !== 3 ? (
           <div className={Styles.countryCodesTo}>
@@ -195,6 +158,46 @@ const Exchange = () => {
         ) : (
           <div className={Styles.placeholderDiv}></div>
         )}
+      </div>
+      <div className={Styles.amountAndCodesDivWrapper}>
+        <div className={Styles.exchnageInfoText}>
+          <p>
+            All rates comes with a 4% exchange rate when purchasing a currency.{" "}
+            <br />
+            It's always better to buy before you leave for your trip.
+          </p>
+          <div className={Styles.exchnageInfoTextunderDiv}>
+            <img className={Styles.payPalLogo} src={payPal} alt='' />
+          </div>
+        </div>
+        <div className={Styles.currencyInfoDiv}>
+          <p style={{ fontFamily: "serif" }}>Exchange Rate:</p>
+          <p style={{ textAlign: "start" }}>
+            <hr style={{ width: "100%", marginBottom: "2vh" }} /> I Pay:{" "}
+            {amount + ""}
+            {currenccyRollOutFrom?.length === 1
+              ? currenccyRollOutFrom[0]?.symbol + " "
+              : null}
+            <br />I Get: {money ? money.toFixed(2) + " " : null}
+            {currenccyRollOutTo?.length === 1
+              ? currenccyRollOutTo[0]?.symbol
+              : null}
+            <br />
+            <p className={Styles.ratesToPay}>
+              Exchange Rate: {money ? money * 0.04 : null} <br />
+              Exchange Rate Percent: 4%
+            </p>
+            <p style={{ marginTop: "2vh" }}>
+              Total to pay: {money ? money * 1.004 : null}
+            </p>
+          </p>
+          <div className={Styles.btnVisaLogoDiv}>
+            <img style={{ width: "calc(30px + 2vw)" }} src={visa} alt='' />
+            <Button id='uiBtn' variant='contained'>
+              To Cart
+            </Button>
+          </div>
+        </div>
       </div>
 
       {toogleInfo ? (

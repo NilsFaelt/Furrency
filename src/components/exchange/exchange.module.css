@@ -5,7 +5,7 @@
     gap: 3vh;
     background-image: url('https://images.unsplash.com/photo-1515238152791-8216bfdf89a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80');
     padding-top: 5vh;
-    padding-bottom: 5vh;
+    padding-bottom: 15vh;
     margin-bottom: 10vh;
 }
 .container{
@@ -45,8 +45,7 @@
     left: 0;
     right: 0;
     top: 55vh;
-    /* margin-top: 5vh;
-    margin-left: -15vw; */
+
 }
 .info{
     font-family: serif;
@@ -113,7 +112,6 @@
     flex-direction: row;
     border-radius: 10px;
     padding: clamp(12px, 2vw, 5vw);
-    margin-top: 10vh;
     background-color: white;
 
 }
@@ -121,8 +119,11 @@
     width: 90%;
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
-    margin-top: 2vh;
+    margin-top: 4vh;
     padding: 1vw;
+}
+.payPalLogo{
+    width: clamp(50px, 5vw, 5vw);
 }
 .exchnageInfoText{
     font-size: calc(8px + 0.2vw);
@@ -131,9 +132,7 @@
     padding: 2vw;
     border-radius: 10px;
     box-shadow: 1px 1px 1px grey;
-    width: clamp(10px, 15vw, 15vw);
-   
-
+    width: clamp(140px, 15vw, 15vw);
 }
 .amountAndCodesDiv{
     display: flex;
@@ -141,7 +140,9 @@
 
 }
 .placeholderDiv{
-    width: 10vw;
+    width: clamp(70px, 7vw, 7vw);
+    height: 14vh;
+    margin: 1vw;
 }
 .currencyInfoDiv{
     display: flex;
@@ -167,4 +168,5 @@
     margin-top: 1vh;
     font-size: calc(8px + 0.3vw);
 }
+
 
