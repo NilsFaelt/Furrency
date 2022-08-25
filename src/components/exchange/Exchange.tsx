@@ -149,9 +149,7 @@ const Exchange = () => {
                 currency. <br />
                 It's always better to buy before you leave for your trip.
               </p>
-              <div className={Styles.exchnageInfoTextunderDiv}>
-                <p>At furrency you can get your travel insuance</p>
-              </div>
+              <div className={Styles.exchnageInfoTextunderDiv}>hej</div>
             </div>
             <div className={Styles.currencyInfoDiv}>
               <p style={{ fontFamily: "serif" }}>Exchange Rate:</p>

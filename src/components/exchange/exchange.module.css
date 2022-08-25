@@ -131,7 +131,7 @@
     padding: 2vw;
     border-radius: 10px;
     box-shadow: 1px 1px 1px grey;
-    width: clamp(130px, 15vw, 15vw);
+    width: clamp(10px, 15vw, 15vw);
    
 
 }
