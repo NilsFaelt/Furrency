@@ -33,8 +33,7 @@ const Exchange = () => {
   const money: number | null = exchangedRate
     ? exchangedRate.rate * amount
     : null;
-  const tott: number | null = money ? money * 1.004 : null;
-  const tottTwoDecimals = tott?.toFixed(2);
+
 
   const switchRates = () => {
     const fromHolder = fromRate;
@@ -177,7 +176,7 @@ const Exchange = () => {
           <p style={{ fontFamily: "serif" }}>Exchange Rate:</p>
           <p style={{ textAlign: "start" }}>
             <hr style={{ width: "100%", marginBottom: "2vh" }} /> I Pay:{" "}
-            {amount ? amount.toFixed(2) : null + " "}
+            {amount? amount: 0 }.00{' '}
             {currenccyRollOutFrom?.length === 1
               ? currenccyRollOutFrom[0]?.symbol + " "
               : null}
@@ -191,9 +190,9 @@ const Exchange = () => {
               Exchange Rate Percent: 4%
             </p>
             <p style={{ marginTop: "2vh" }}>
-              Total to pay: {tottTwoDecimals + " "}
-              {currenccyRollOutTo?.length === 1
-                ? currenccyRollOutTo[0]?.symbol
+              Total to pay: {amount * 1.004} {' '}
+              {currenccyRollOutFrom?.length === 1
+                ? currenccyRollOutFrom[0]?.symbol
                 : null}
             </p>
           </p>
