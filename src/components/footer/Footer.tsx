@@ -1,10 +1,34 @@
+import { Link } from "react-router-dom";
 import Styles from "./footer.module.css";
 
 const Footer = () => {
   return (
     <footer className={Styles.container}>
       <div className={Styles.infoDivWrapper}>
-        <div className={Styles.leftInfoDiv}></div>
+        <div className={Styles.leftInfoDiv}>
+          <div className={Styles.linkDiv}>
+            <Link className={Styles.li} to={"/"}>
+              Exchange
+            </Link>
+            <Link className={Styles.li} to={"/"}>
+              Exchange
+            </Link>
+            <Link className={Styles.li} to={"/"}>
+              Exchange
+            </Link>
+          </div>
+          <div className={Styles.linkDiv}>
+            <Link className={Styles.li} to={"/kryptoexchange"}>
+              CryptoExchange
+            </Link>
+            <Link className={Styles.li} to={"/kryptoexchange"}>
+              CryptoExchange
+            </Link>
+            <Link className={Styles.li} to={"/kryptoexchange"}>
+              CryptoExchange
+            </Link>
+          </div>
+        </div>
         <div className={Styles.rightInfoDiv}></div>
       </div>
       <div className={Styles.lowerDiv}>

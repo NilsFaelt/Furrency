@@ -1,0 +1,54 @@
+.outerDiv{
+    width: 100%;
+    min-height:40vh ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vh;
+    background-image: url('https://images.unsplash.com/photo-1550565360-6986a92b7169?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+    padding-top: 5vh;
+    padding-bottom: 15vh;
+    margin-bottom: 10vh;
+}
+.title{
+    color: white;
+}
+.underTitle{
+    color: white;
+}
+.input{
+    width: clamp(120px, 10vw, 10vw);
+    height: clamp(30px, 1vh, 4vh);
+    border-radius: 15px;
+    border: none;
+    text-align: center;
+    border: 2px solid rgba(128, 128, 128, 0.453);
+    margin-right: 2vw;
+    margin-left: 1vw;
+    margin-bottom: 1vh;
+    font-size: calc(12px + 0.3vw);
+}
+.input:focus{
+    outline: none;
+    box-shadow: 1px 1px 10px white;
+    font-size: calc(12px + 0.3vw);
+}
+.input::placeholder{
+    text-align: center;
+        font-size: calc(12px + 0.3vw);
+}
+
+.rollOutCodes{
+    width: clamp(100px, 10vw, 10vw);
+    background-color: black;
+    border-radius: 5px;
+    height: 15vh;
+    color: white;
+    overflow: scroll;
+}
+
+.code:hover{
+    cursor: pointer;
+    background-color: yellow;
+    color: black;
+}

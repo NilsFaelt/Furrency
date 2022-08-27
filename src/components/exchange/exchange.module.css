@@ -34,7 +34,7 @@
 }
 .input::placeholder{
     text-align: center;
-        font-size: calc(12px + 0.3vw);
+    font-size: calc(12px + 0.3vw);
 }
 .searchDiv{
     display: flex;

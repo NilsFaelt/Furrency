@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Styles from "./menu.module.css";
 
 interface Props {
@@ -12,9 +13,12 @@ const Menu: React.FC<Props> = ({ setToogleMenu }) => {
     >
       <nav className={Styles.container}>
         <ul className={Styles.ul}>
-          <li className={Styles.li}>Crypto Exchange</li>
-          <li className={Styles.li}>Crypto Exchange</li>
-          <li className={Styles.li}>Crypto Exchange</li>
+          <Link className={Styles.li} to={"/"}>
+            <li className={Styles.li}>Exchange</li>
+          </Link>
+          <Link className={Styles.li} to={"/kryptoexchange"}>
+            <li className={Styles.li}>Crypto Exchange</li>
+          </Link>
         </ul>
       </nav>
     </div>

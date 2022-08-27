@@ -16,3 +16,11 @@ button{
  h1{
   font-size:calc(10px + 1.5vw);
  }
+ #btnCrypto{
+  font-size: calc(8px + 0.5vw);
+  width: auto;
+  height: auto;
+  margin-top: 2vh;
+  color: white;
+
+ }

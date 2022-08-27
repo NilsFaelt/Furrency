@@ -2,28 +2,17 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/header/Header";
-import { fetchAllRAtes } from "./functions/fetchData";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import Exchange from "./components/exchange/Exchange";
 import Menu from "./components/menu/Menu";
 import Footer from "./components/footer/Footer";
+import KryptoExchange from "./components/kryptoExchange/KryptoExchange";
 
 function App() {
-  const [allRates, setAllRates] = useState<any>([]);
   const [flagUrl, setFlagUrl] = useState<string>("");
   const [choseFlag, setChooseFlag] = useState<string | null>("nor");
   const [toogleMenu, setToogleMenu] = useState<boolean>(false);
 
-  // const fetchAllRAtes = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //       "https://api.exchangerate.host/convert?from=USD&to=EUR"
-  //     );
-  //     setAllRates(response.data);
-  //   } catch (err) {
-  //     console.log(`something wnet wrong in fecthdata, error:${err}`);
-  //   }
-  // };
   const fetchFlag = async () => {
     try {
       const response = await axios.get(
@@ -53,11 +42,14 @@ function App() {
         setChooseFlag={setChooseFlag}
       />
       <div className='titleWrapper'>
-        <h1>FURRENCY</h1>
+        <Link style={{ color: "black", textDecoration: "none" }} to={"/"}>
+          <h1>FURRENCY</h1>
+        </Link>
         <p className='underTitle'>exchange at the lowest rates</p>
         <hr className='homeHr' />
         <Routes>
           <Route path='/' element={<Exchange />} />
+          <Route path='/kryptoexchange' element={<KryptoExchange />} />
         </Routes>
       </div>
       <Footer />

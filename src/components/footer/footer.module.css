@@ -9,16 +9,21 @@
     gap: 0.4vw;
 }
 .leftInfoDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     background-color:rgb(250, 213, 47) ;
     height: auto;
     width: 49.8vw;
-    height: min(10vh);
+
 }
 .rightInfoDiv{
+    display: flex;
+    flex-direction: row;
     background-color:rgb(250, 213, 47) ;
     height: auto;
     width: 49.8vw;
-    height: min(10vh);
+ 
 }
 .lowerDiv{
     text-align: center;
@@ -39,4 +44,23 @@
     margin-top: 1vh;
     color: white;
     font-size: calc(8px + 0.4vw);
+}
+.li{
+    text-align: center;
+    text-decoration: underline;
+    font-size: calc(8px + 0.4vw);
+    cursor: pointer;
+    width: 100%;
+    margin-top: 0.1vh;
+    padding-top: 0.1vh;
+    padding-bottom: 1vh;
+    font-family: 'Bebas Neue', cursive;
+    color: rgb(0, 0, 0);
+    
+}
+.linkDiv{
+    margin-top: 1vh;
+    display: flex;
+    flex-direction: column;
+   
 }
