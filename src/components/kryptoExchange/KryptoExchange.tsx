@@ -33,7 +33,7 @@ const KryptoExchange = () => {
   const fetchCryptoRates = async () => {
     try {
       const response = await axios.get(
-        "https://rest.coinapi.io/v1/exchangerate/ETH/USD",
+        `https://rest.coinapi.io/v1/exchangerate/${searchCrypto}/USD`,
         {
           headers: {
             "X-CoinAPI-Key": `${CRYPTO_API_KEY}`,
@@ -55,9 +55,12 @@ const KryptoExchange = () => {
   }, [searchCrypto]);
   console.log(filteredCryptoCodes);
 
-  // useEffect(() => {
-  //   fetchCryptoRates();
-  // }, []);
+  useEffect(() => {
+    if (searchCrypto.length === 3) {
+      console.log("fetching mufker");
+      fetchCryptoRates();
+    }
+  }, [searchCrypto]);
 
   return (
     <div className={Styles.outerDiv}>
@@ -68,7 +71,8 @@ const KryptoExchange = () => {
         className={Styles.input}
         type='text'
         placeholder='Search'
-        value={searchCrypto}
+        value={searchCrypto.toLocaleUpperCase()}
+        maxLength={3}
       />
       {searchCrypto.length === 3 ? null : (
         <div className={Styles.rollOutCodes}>
@@ -84,7 +88,7 @@ const KryptoExchange = () => {
       )}
 
       <div>
-        <CryptoCard />
+        <CryptoCard crypto={crypto} />
       </div>
     </div>
   );

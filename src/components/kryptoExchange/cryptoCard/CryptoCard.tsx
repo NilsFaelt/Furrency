@@ -1,21 +1,31 @@
 import { Button } from "@mui/material";
 import Styles from "./cryproCard.module.css";
 
-const CryptoCard = () => {
+interface Crypto {
+  asset_id_base: string;
+  asset_id_quote: string;
+  rate: number;
+  time: string;
+}
+interface Props {
+  crypto: Crypto | null;
+}
+
+const CryptoCard: React.FC<Props> = ({ crypto }) => {
   return (
     <div className={Styles.container}>
       <div className={Styles.titleDiv}>
-        <h2>ETH</h2>
-        <p>ETHEREUM</p>
+        <h2>{crypto?.asset_id_base}</h2>
+        <p>{crypto?.asset_id_quote}</p>
       </div>
       <div className={Styles.rateDiv}>
         <div>
-          <p>Exchange Rate: 3009 $</p>
-          <p>As of date:</p>
+          <p>Exchange Rate: {crypto?.rate} $</p>
+          <p>As of date: {crypto?.time}</p>
         </div>
         <div className={Styles.feeDiv}>
           <p>All exchange comes with 4% fee </p>
-          <p>Total fee: 4 dolar</p>
+          <p>Total fee: {crypto?.rate ? crypto?.rate * 0.04 : 0} dolar</p>
         </div>
       </div>
       <Button id='btnCrypto'>Add to cart</Button>
