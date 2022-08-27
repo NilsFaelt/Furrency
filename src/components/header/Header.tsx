@@ -2,6 +2,7 @@ import Styles from "./header.module.css";
 import { Button } from "@mui/material";
 import { MenuIcon } from "@heroicons/react/outline";
 import { useState } from "react";
+import { ShoppingCartIcon } from "@heroicons/react/solid";
 
 interface Props {
   flagUrl: string;
@@ -19,6 +20,7 @@ const Header: React.FC<Props> = ({
   console.log(flagUrl);
   return (
     <header className={Styles.container}>
+      <ShoppingCartIcon className={Styles.cart} />
       <MenuIcon
         onClick={() => setToogleMenu(!toogleMenu)}
         className={Styles.burger}
