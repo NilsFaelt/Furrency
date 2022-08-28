@@ -7,7 +7,7 @@ import currencyCodes from "../../json/currencyCode.json";
 import visa from "../../assets/visa.png";
 import payPal from "../../assets/payPal.svg";
 import { useDispatch } from "react-redux";
-import { addCurrency, removeAll } from "../../redux/addToCart";
+import { addCurrency } from "../../redux/addToCart";
 import { nanoid } from "nanoid";
 
 interface ExchangedRate {

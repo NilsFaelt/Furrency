@@ -7,8 +7,10 @@ import Exchange from "./components/exchange/Exchange";
 import Menu from "./components/menu/Menu";
 import Footer from "./components/footer/Footer";
 import KryptoExchange from "./components/kryptoExchange/KryptoExchange";
+import MyCart from "./components/myCart/MyCart";
 
 function App() {
+  const [toogleCart, setToogleCart] = useState<boolean>(true);
   const [flagUrl, setFlagUrl] = useState<string>("");
   const [choseFlag, setChooseFlag] = useState<string | null>("nor");
   const [toogleMenu, setToogleMenu] = useState<boolean>(false);
@@ -36,11 +38,14 @@ function App() {
       {toogleMenu ? <Menu setToogleMenu={setToogleMenu} /> : null}
 
       <Header
+        toogleCart={toogleCart}
+        setToogleCart={setToogleCart}
         setToogleMenu={setToogleMenu}
         toogleMenu={toogleMenu}
         flagUrl={flagUrl}
         setChooseFlag={setChooseFlag}
       />
+      {toogleCart ? <MyCart /> : null}
       <div className='titleWrapper'>
         <Link style={{ color: "black", textDecoration: "none" }} to={"/"}>
           <h1>FURRENCY</h1>
@@ -52,6 +57,7 @@ function App() {
           <Route path='/kryptoexchange' element={<KryptoExchange />} />
         </Routes>
       </div>
+
       <Footer />
     </div>
   );

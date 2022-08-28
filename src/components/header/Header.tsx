@@ -8,19 +8,26 @@ interface Props {
   flagUrl: string;
   setChooseFlag: (flag: string) => void;
   setToogleMenu: (flag: boolean) => void;
+  setToogleCart: (flag: boolean) => void;
   toogleMenu: boolean;
+  toogleCart: boolean;
 }
 
 const Header: React.FC<Props> = ({
+  setToogleCart,
   flagUrl,
   setChooseFlag,
   setToogleMenu,
   toogleMenu,
+  toogleCart,
 }) => {
   console.log(flagUrl);
   return (
     <header className={Styles.container}>
-      <ShoppingCartIcon className={Styles.cart} />
+      <ShoppingCartIcon
+        onClick={() => setToogleCart(!toogleCart)}
+        className={Styles.cart}
+      />
       <MenuIcon
         onClick={() => setToogleMenu(!toogleMenu)}
         className={Styles.burger}
