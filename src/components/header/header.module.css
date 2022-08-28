@@ -47,13 +47,17 @@
 .cart{
     width: calc(20px + 0.7vw);
     position: absolute;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
     padding: clamp(4px, 0.3vw, 0.3vw);
     border-radius: 5px;
     z-index: 2;
-    border: solid 1px yellow ;
+    border: solid 2px rgb(216, 248, 248) ;
     top: 14vh;
     right: 1.8vw;
     cursor: pointer;
+}
+.cart:active{
+    transition:1s;
+    color: aqua;
 }

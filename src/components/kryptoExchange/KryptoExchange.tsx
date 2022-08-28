@@ -4,6 +4,7 @@ import { CRYPTO_API_KEY } from "../../../keys";
 import { useEffect, useState } from "react";
 import CryptoCard from "./cryptoCard/CryptoCard";
 import cryptoCodes from "../../json/cryptoCodes.json";
+import { useSelector } from "react-redux";
 
 interface Crypto {
   asset_id_base: string;
@@ -17,6 +18,8 @@ interface FilteredCodes {
 }
 
 const KryptoExchange = () => {
+  const currencys = useSelector((state: any) => state.cart);
+  console.log(currencys);
   const [crypto, setCrypto] = useState<Crypto | null>(null);
   const [filteredCryptoCodes, setFilteredCryptoCodes] = useState<
     FilteredCodes[] | null
@@ -78,6 +81,7 @@ const KryptoExchange = () => {
         <div className={Styles.rollOutCodes}>
           {filteredCryptoCodes?.map((code) => (
             <p
+              key={code.symbol}
               onClick={() => handleCodeClick(code.symbol)}
               className={Styles.code}
             >

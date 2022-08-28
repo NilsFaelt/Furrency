@@ -5,13 +5,15 @@ interface Crypto {
   asset_id_base: string;
   asset_id_quote: string;
   rate: number;
-  time: string;
+  time?: string;
 }
 interface Props {
   crypto: Crypto | null;
 }
 
 const CryptoCard: React.FC<Props> = ({ crypto }) => {
+  const rate = crypto?.rate ? crypto?.rate * 0.04 : null;
+
   return (
     <div className={Styles.container}>
       <div className={Styles.titleDiv}>
@@ -20,12 +22,11 @@ const CryptoCard: React.FC<Props> = ({ crypto }) => {
       </div>
       <div className={Styles.rateDiv}>
         <div>
-          <p>Exchange Rate: {crypto?.rate} $</p>
-          <p>As of date: {crypto?.time}</p>
+          <p>Exchange Rate: {crypto?.rate.toFixed(2)} $</p>
         </div>
         <div className={Styles.feeDiv}>
           <p>All exchange comes with 4% fee </p>
-          <p>Total fee: {crypto?.rate ? crypto?.rate * 0.04 : 0} dolar</p>
+          <p>Total fee: {crypto?.rate ? rate?.toFixed(2) : 0} dolar</p>
         </div>
       </div>
       <Button id='btnCrypto'>Add to cart</Button>
