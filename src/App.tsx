@@ -10,7 +10,7 @@ import KryptoExchange from "./components/kryptoExchange/KryptoExchange";
 import MyCart from "./components/myCart/MyCart";
 
 function App() {
-  const [toogleCart, setToogleCart] = useState<boolean>(true);
+  const [toogleCart, setToogleCart] = useState<boolean>(false);
   const [flagUrl, setFlagUrl] = useState<string>("");
   const [choseFlag, setChooseFlag] = useState<string | null>("nor");
   const [toogleMenu, setToogleMenu] = useState<boolean>(false);
@@ -45,7 +45,7 @@ function App() {
         flagUrl={flagUrl}
         setChooseFlag={setChooseFlag}
       />
-      {toogleCart ? <MyCart /> : null}
+      {toogleCart ? <MyCart setToogleCart={setToogleCart} /> : null}
       <div className='titleWrapper'>
         <Link style={{ color: "black", textDecoration: "none" }} to={"/"}>
           <h1>FURRENCY</h1>

@@ -11,10 +11,14 @@ interface Currencys {
   symbol: String;
   getValue: number;
   fromRate: string;
-  id: any;
+  id: string;
 }
 
-const MyCart: React.FC = () => {
+interface Props {
+  setToogleCart: (toogle: boolean) => void;
+}
+
+const MyCart: React.FC<Props> = ({ setToogleCart }) => {
   const dispatch = useDispatch();
   const allItems: Currencys[] = useSelector(
     (state: any) => state.cart.currencys
@@ -28,9 +32,15 @@ const MyCart: React.FC = () => {
   return (
     <div className={Styles.container}>
       <div className={Styles.displayItemsDiv}>
+        <h3 style={{ textAlign: "center" }}>
+          {allItems.length < 1 ? <p>Cart Empty</p> : null}
+        </h3>
         {allItems
           ? allItems?.map((item: Currencys) => {
-              return <DisplayItems item={item} />;
+              if (item.toPay > 0) {
+                return <DisplayItems key={item.id} item={item} />;
+              }
+              return;
             })
           : null}
       </div>

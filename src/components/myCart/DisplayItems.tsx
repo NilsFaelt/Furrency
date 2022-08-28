@@ -1,11 +1,15 @@
 import React from "react";
+import Styles from "./myCart.module.css";
+import { XCircleIcon } from "@heroicons/react/outline";
+import { useDispatch } from "react-redux";
+import { removeCurrency } from "../../redux/addToCart";
 
 interface Currencys {
   toPay: number;
   symbol: String;
   getValue: number;
   fromRate: string;
-  id: any;
+  id: string;
 }
 
 interface Props {
@@ -13,13 +17,28 @@ interface Props {
 }
 
 const DisplayItems: React.FC<Props> = ({ item }) => {
+  const dispatch = useDispatch();
+  const removeItem = (id: string) => {
+    dispatch(removeCurrency(id));
+  };
   return (
-    <div>
-      <h3>{item.symbol}</h3>
-      <p>{item.toPay}</p>
-      <hr />
-      <p>{item.fromRate}</p>
-      <p>{item.getValue}</p>
+    <div className={Styles.displayContainer}>
+      <div>
+        <p>
+          Purchae: {item.toPay} {item.symbol}
+        </p>
+
+        <p>
+          {" "}
+          To pay: {item.toPay * 1.04} {item.fromRate}
+        </p>
+
+        <hr className={Styles.hr} />
+      </div>
+      <XCircleIcon
+        onClick={() => removeItem(item.id)}
+        className={Styles.xIcon}
+      />
     </div>
   );
 };

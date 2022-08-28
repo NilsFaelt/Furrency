@@ -6,9 +6,9 @@ import { nanoid } from "nanoid";
 interface Currencys {
     toPay: number,
     symbol:String,
-    getValue: number,
+    getValue: number | null,
     fromRate:string,
-    id: any
+    id: string | null
 }
 const currId = nanoid()
 
@@ -16,7 +16,7 @@ export const addToCartSlice = createSlice({
 
     name: "addToCart",
     initialState:{
-       currencys:<Currencys[]> [{fromRate:'USD', getValue: 0, symbol:'Your Cart', toPay:0, id: currId}]
+       currencys:<Currencys[] > [{fromRate:'USD', getValue: null, symbol:'Your Cart', toPay:0, id: null}]
     },
     reducers:{
         addCurrency: (state, action)=>{

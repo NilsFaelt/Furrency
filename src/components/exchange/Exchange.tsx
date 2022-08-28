@@ -20,7 +20,6 @@ interface CurrencyCodes {
 }
 
 const Exchange = () => {
-  const currenCyId = nanoid();
   const dispatch = useDispatch();
   const [exchangedRate, setExchangedRate] = useState<ExchangedRate | null>(
     null
@@ -87,7 +86,7 @@ const Exchange = () => {
         toPay: amount,
         symbol: toRate,
         value: money?.toFixed(2),
-        id: currenCyId,
+        id: nanoid(),
       })
     );
   };

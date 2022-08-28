@@ -1,24 +1,47 @@
+
 .container{
     position: absolute;
     right: 0vw;
     width: clamp(390px, 50vw, 50vw);
     height: 85vh;
     border-top: 1px solid black;
-    background-color: rgb(218, 218, 218);
-    box-shadow: 1px 1px 1px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 3px 3px 3px;
     z-index: 1;
+    border-radius: 5px;
+}
+.displayContainer{
+    display: flex;
+    margin-top: 2vh;
 }
 
 .displayItemsDiv{
-    height: 75vh;
     display: flex;
     flex-direction: column;
-    background-color: white;
+    gap: 3vh;
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
     width: clamp(350px, 45vw, 45vw);
+    margin-left: 4vw;
+    margin-top: 10vh;
+    overflow: scroll;
 }
 
 .btnDiv{
+    padding-bottom: 2vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+.hr{
+    margin-top: 1vh;
+    width: clamp(290px, 35vw, 35vw);
+}
+.xIcon{
+    width: 30px;
+    cursor: pointer;
+    color: rgb(247, 38, 38);
+    margin-left: 2vw;
+    margin-bottom: 2vh;
 }
