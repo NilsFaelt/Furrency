@@ -6,6 +6,9 @@ import { SwitchHorizontalIcon } from "@heroicons/react/outline";
 import currencyCodes from "../../json/currencyCode.json";
 import visa from "../../assets/visa.png";
 import payPal from "../../assets/payPal.svg";
+import { useDispatch } from "react-redux";
+import { addCurrency, removeAll } from "../../redux/addToCart";
+import { nanoid } from "nanoid";
 
 interface ExchangedRate {
   rate: number;
@@ -17,6 +20,8 @@ interface CurrencyCodes {
 }
 
 const Exchange = () => {
+  const currenCyId = nanoid();
+  const dispatch = useDispatch();
   const [exchangedRate, setExchangedRate] = useState<ExchangedRate | null>(
     null
   );
@@ -73,6 +78,18 @@ const Exchange = () => {
   };
   const setToOnClick = (code: string) => {
     setToRate(code);
+  };
+
+  const addToCart = () => {
+    dispatch(
+      addCurrency({
+        fromRate: fromRate,
+        toPay: amount,
+        symbol: toRate,
+        value: money?.toFixed(2),
+        id: currenCyId,
+      })
+    );
   };
 
   useEffect(() => {
@@ -197,7 +214,7 @@ const Exchange = () => {
           </div>
           <div className={Styles.btnVisaLogoDiv}>
             <img style={{ width: "calc(30px + 2vw)" }} src={visa} alt='' />
-            <Button id='uiBtn' variant='contained'>
+            <Button onClick={addToCart} id='uiBtn' variant='contained'>
               To Cart
             </Button>
           </div>

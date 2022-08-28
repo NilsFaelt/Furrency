@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import CryptoCard from "./cryptoCard/CryptoCard";
 import cryptoCodes from "../../json/cryptoCodes.json";
 import { useSelector } from "react-redux";
+import { removeAll } from "../../redux/addToCart";
 
 interface Crypto {
   asset_id_base: string;
@@ -19,7 +20,7 @@ interface FilteredCodes {
 
 const KryptoExchange = () => {
   const currencys = useSelector((state: any) => state.cart);
-  console.log(currencys);
+  console.log(currencys.currencys);
   const [crypto, setCrypto] = useState<Crypto | null>(null);
   const [filteredCryptoCodes, setFilteredCryptoCodes] = useState<
     FilteredCodes[] | null
@@ -56,14 +57,13 @@ const KryptoExchange = () => {
   useEffect(() => {
     filterCryptoCodes();
   }, [searchCrypto]);
-  console.log(filteredCryptoCodes);
 
-  useEffect(() => {
-    if (searchCrypto.length === 3) {
-      console.log("fetching mufker");
-      fetchCryptoRates();
-    }
-  }, [searchCrypto]);
+  // useEffect(() => {
+  //   if (searchCrypto.length === 3) {
+  //     console.log("fetching mufker");
+  //     fetchCryptoRates();
+  //   }
+  // }, [searchCrypto]);
 
   return (
     <div className={Styles.outerDiv}>

@@ -1,5 +1,7 @@
 import { Button } from "@mui/material";
 import Styles from "./cryproCard.module.css";
+import { useDispatch } from "react-redux";
+import { removeAll } from "../../../redux/addToCart";
 
 interface Crypto {
   asset_id_base: string;
@@ -12,7 +14,13 @@ interface Props {
 }
 
 const CryptoCard: React.FC<Props> = ({ crypto }) => {
+  const dispatch = useDispatch();
   const rate = crypto?.rate ? crypto?.rate * 0.04 : null;
+
+  const addToCart = () => {
+    console.log("hej i func");
+    dispatch(removeAll());
+  };
 
   return (
     <div className={Styles.container}>
@@ -29,7 +37,9 @@ const CryptoCard: React.FC<Props> = ({ crypto }) => {
           <p>Total fee: {crypto?.rate ? rate?.toFixed(2) : 0} dolar</p>
         </div>
       </div>
-      <Button id='btnCrypto'>Add to cart</Button>
+      <Button onClick={addToCart} id='btnCrypto'>
+        Add to cart
+      </Button>
     </div>
   );
 };

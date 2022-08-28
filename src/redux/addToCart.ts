@@ -4,16 +4,19 @@ import { nanoid } from "nanoid";
 
 
 interface Currencys {
+    toPay: number,
     symbol:String,
-    value: number,
+    getValue: number,
+    fromRate:string,
     id: any
 }
 const currId = nanoid()
+
 export const addToCartSlice = createSlice({
 
     name: "addToCart",
     initialState:{
-       currencys:<Currencys[]> [{symbol:'Your Cart', value:0, id: currId}]
+       currencys:<Currencys[]> [{fromRate:'USD', getValue: 0, symbol:'Your Cart', toPay:0, id: currId}]
     },
     reducers:{
         addCurrency: (state, action)=>{
@@ -23,6 +26,7 @@ export const addToCartSlice = createSlice({
             state.currencys = state.currencys.filter((item)=>item.id !== action.payload )
         },
         removeAll:(state)=>{
+            console.log('hej')
             state.currencys = []
         }
     }
