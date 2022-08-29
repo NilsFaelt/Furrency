@@ -12,10 +12,12 @@
 }
 .displayContainer{
     display: flex;
+    flex-direction: row;
     margin-top: 2vh;
 }
 
 .displayItemsDiv{
+    font-size: calc(12px + 0.4vw);
     display: flex;
     flex-direction: column;
     gap: 3vh;
@@ -35,13 +37,35 @@
     justify-content: space-around;
 }
 .hr{
-    margin-top: 1vh;
+    margin-top: 1.5vh;
     width: clamp(290px, 35vw, 35vw);
+
 }
 .xIcon{
     width: 30px;
     cursor: pointer;
     color: rgb(247, 38, 38);
-    margin-left: 2vw;
     margin-bottom: 2vh;
+    margin-left: clamp(30px, 2vw, 2vw);
+}
+.text{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 1vh;
+}
+.textDiv{
+    width: clamp(160px, 25vw, 25vw);
+}
+.rateDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: calc(8px + 0.3vw);
+    border-radius: 5px;
+    border: 1px solid black;
+    height: 5vh;
+    padding: 0.5vw;
+    margin-top: 0.5vh;
+    margin-left: clamp( 15px, 1vw, 9vw);
+    width:clamp(100px, 8vw, 10vw) ;
 }

@@ -11,7 +11,10 @@ const Menu: React.FC<Props> = ({ setToogleMenu }) => {
       onClick={() => setToogleMenu(false)}
       className={Styles.clickClosemenuDiv}
     >
-      <nav className={Styles.container}>
+      <nav
+        onMouseLeave={() => setToogleMenu(false)}
+        className={Styles.container}
+      >
         <ul className={Styles.ul}>
           <Link className={Styles.li} to={"/"}>
             <li className={Styles.li}>Exchange</li>

@@ -23,17 +23,23 @@ const DisplayItems: React.FC<Props> = ({ item }) => {
   };
   return (
     <div className={Styles.displayContainer}>
-      <div>
-        <p>
+      <div className={Styles.textDiv}>
+        <p className={Styles.text}>
           Purchae: {item.toPay} {item.symbol}
         </p>
-
-        <p>
+        <p className={Styles.text}>
           {" "}
           To pay: {item.toPay * 1.04} {item.fromRate}
         </p>
 
         <hr className={Styles.hr} />
+      </div>
+      <div className={Styles.rateDiv}>
+        <p>Exchange rate: 4%</p>
+        <p>
+          Exchange fee: {item.toPay * 0.04} {item.fromRate}{" "}
+        </p>
+        <p></p>
       </div>
       <XCircleIcon
         onClick={() => removeItem(item.id)}
