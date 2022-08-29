@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import DisplayItems from "./DisplayItems";
 import Styles from "./myCart.module.css";
 import { removeAll } from "../../redux/addToCart";
+import { XCircleIcon } from "@heroicons/react/outline";
 
 interface Currencys {
   toPay: number;
@@ -34,6 +35,11 @@ const MyCart: React.FC<Props> = ({ setToogleCart }) => {
   console.log(allItems);
   return (
     <div className={Styles.container}>
+      <XCircleIcon
+        className={Styles.xIconClose}
+        onClick={() => setToogleCart(false)}
+      />
+
       <div className={Styles.displayItemsDiv}>
         <h3 style={{ textAlign: "center" }}>
           {displayItemsAmountInCart.length === 0 ? <p>Cart Empty</p> : null}
