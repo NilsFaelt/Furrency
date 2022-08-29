@@ -1,6 +1,5 @@
 import { Store } from "@mui/icons-material";
 import { Button } from "@mui/material";
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DisplayItems from "./DisplayItems";
 import Styles from "./myCart.module.css";
@@ -34,7 +33,7 @@ const MyCart: React.FC<Props> = ({ setToogleCart }) => {
 
   console.log(allItems);
   return (
-    <div onMouseLeave={() => setToogleCart(false)} className={Styles.container}>
+    <div className={Styles.container}>
       <div className={Styles.displayItemsDiv}>
         <h3 style={{ textAlign: "center" }}>
           {displayItemsAmountInCart.length === 0 ? <p>Cart Empty</p> : null}

@@ -16,7 +16,7 @@ export const addToCartSlice = createSlice({
 
     name: "addToCart",
     initialState:{
-       currencys:<Currencys[]  > [{fromRate:'USD', getValue: null, symbol:'Your Cart', toPay:0, id: null}]
+       currencys:<Currencys[] > [{fromRate:'USD', getValue: null, symbol:'Your Cart', toPay:0, id: null}]
     },
     reducers:{
         addCurrency: (state, action)=>{
