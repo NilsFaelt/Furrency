@@ -28,12 +28,16 @@ const MyCart: React.FC<Props> = ({ setToogleCart }) => {
     dispatch(removeAll());
   };
 
+  const displayItemsAmountInCart = allItems.filter((item) => {
+    if (item.toPay > 0) return item;
+  });
+
   console.log(allItems);
   return (
     <div onMouseLeave={() => setToogleCart(false)} className={Styles.container}>
       <div className={Styles.displayItemsDiv}>
         <h3 style={{ textAlign: "center" }}>
-          {allItems.length < 1 ? <p>Cart Empty</p> : null}
+          {displayItemsAmountInCart.length === 0 ? <p>Cart Empty</p> : null}
         </h3>
         {allItems
           ? allItems?.map((item: Currencys) => {
