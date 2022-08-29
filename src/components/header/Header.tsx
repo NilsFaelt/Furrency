@@ -32,6 +32,10 @@ const Header: React.FC<Props> = ({
   const allItems: Currencys[] = useSelector(
     (state: any) => state.cart.currencys
   );
+  const displayItemsAmountInCart = allItems.filter((item) => {
+    if (item.toPay > 0) return item;
+  });
+  console.log(displayItemsAmountInCart, " allllllll items");
 
   return (
     <header className={Styles.container}>
@@ -40,7 +44,9 @@ const Header: React.FC<Props> = ({
           onClick={() => setToogleCart(!toogleCart)}
           className={Styles.cart}
         />
-        <p className={Styles.itemInCartAmount}>{allItems.length}</p>
+        <p className={Styles.itemInCartAmount}>
+          {displayItemsAmountInCart.length}
+        </p>
       </div>
       <MenuIcon
         onClick={() => setToogleMenu(!toogleMenu)}
