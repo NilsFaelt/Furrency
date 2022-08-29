@@ -65,7 +65,7 @@
     position: absolute;
     top: 18vh;
     right: 1.5vw;
-    color: rgb(245, 92, 92);
+    color: rgb(0, 0, 0);
     z-index: 3;
     font-size: calc(14px + 0.2vw);
     border: 1px solid black;

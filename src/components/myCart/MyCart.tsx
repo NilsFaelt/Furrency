@@ -30,7 +30,7 @@ const MyCart: React.FC<Props> = ({ setToogleCart }) => {
 
   console.log(allItems);
   return (
-    <div className={Styles.container}>
+    <div onMouseLeave={() => setToogleCart(false)} className={Styles.container}>
       <div className={Styles.displayItemsDiv}>
         <h3 style={{ textAlign: "center" }}>
           {allItems.length < 1 ? <p>Cart Empty</p> : null}
