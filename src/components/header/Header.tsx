@@ -3,6 +3,14 @@ import { Button } from "@mui/material";
 import { MenuIcon } from "@heroicons/react/outline";
 import { useState } from "react";
 import { ShoppingCartIcon } from "@heroicons/react/solid";
+import { useSelector } from "react-redux";
+interface Currencys {
+  toPay: number;
+  symbol: String;
+  getValue: number;
+  fromRate: string;
+  id: string;
+}
 
 interface Props {
   flagUrl: string;
@@ -21,13 +29,19 @@ const Header: React.FC<Props> = ({
   toogleMenu,
   toogleCart,
 }) => {
-  console.log(flagUrl);
+  const allItems: Currencys[] = useSelector(
+    (state: any) => state.cart.currencys
+  );
+
   return (
     <header className={Styles.container}>
-      <ShoppingCartIcon
-        onClick={() => setToogleCart(!toogleCart)}
-        className={Styles.cart}
-      />
+      <div>
+        <ShoppingCartIcon
+          onClick={() => setToogleCart(!toogleCart)}
+          className={Styles.cart}
+        />
+        <p className={Styles.itemInCartAmount}>{allItems.length}</p>
+      </div>
       <MenuIcon
         onClick={() => setToogleMenu(!toogleMenu)}
         className={Styles.burger}

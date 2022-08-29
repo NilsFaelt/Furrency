@@ -17,6 +17,7 @@ interface Props {
 }
 
 const DisplayItems: React.FC<Props> = ({ item }) => {
+  const toPay = item.toPay * 1.04;
   const dispatch = useDispatch();
   const removeItem = (id: string) => {
     dispatch(removeCurrency(id));
@@ -29,7 +30,7 @@ const DisplayItems: React.FC<Props> = ({ item }) => {
         </p>
         <p className={Styles.text}>
           {" "}
-          To pay: {item.toPay * 1.04} {item.fromRate}
+          To pay: {toPay.toFixed(2)} {item.fromRate}
         </p>
 
         <hr className={Styles.hr} />
