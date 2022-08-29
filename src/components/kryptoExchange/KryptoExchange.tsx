@@ -58,8 +58,7 @@ const KryptoExchange = () => {
   }, [searchCrypto]);
 
   useEffect(() => {
-    if (searchCrypto.length === 3) {
-      console.log("fetching mufker");
+    if (searchCrypto.length >= 3) {
       fetchCryptoRates();
     }
   }, [searchCrypto]);
@@ -76,6 +75,7 @@ const KryptoExchange = () => {
         value={searchCrypto.toLocaleUpperCase()}
         maxLength={3}
       />
+
       {searchCrypto.length === 3 ? null : (
         <div className={Styles.rollOutCodes}>
           {filteredCryptoCodes?.map((code) => (
