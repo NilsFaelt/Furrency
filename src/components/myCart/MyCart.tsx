@@ -12,6 +12,7 @@ interface Currencys {
   getValue: number;
   fromRate: string;
   id: string;
+  crypto: boolean;
 }
 
 interface Props {
@@ -32,7 +33,6 @@ const MyCart: React.FC<Props> = ({ setToogleCart }) => {
     if (item.toPay > 0) return item;
   });
 
-  console.log(allItems);
   return (
     <div className={Styles.container}>
       <XCircleIcon

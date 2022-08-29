@@ -4,8 +4,7 @@ import { CRYPTO_API_KEY } from "../../../keys";
 import { useEffect, useState } from "react";
 import CryptoCard from "./cryptoCard/CryptoCard";
 import cryptoCodes from "../../json/cryptoCodes.json";
-import { useSelector } from "react-redux";
-import { removeAll } from "../../redux/addToCart";
+import { useDispatch, useSelector } from "react-redux";
 
 interface Crypto {
   asset_id_base: string;
@@ -58,12 +57,12 @@ const KryptoExchange = () => {
     filterCryptoCodes();
   }, [searchCrypto]);
 
-  // useEffect(() => {
-  //   if (searchCrypto.length === 3) {
-  //     console.log("fetching mufker");
-  //     fetchCryptoRates();
-  //   }
-  // }, [searchCrypto]);
+  useEffect(() => {
+    if (searchCrypto.length === 3) {
+      console.log("fetching mufker");
+      fetchCryptoRates();
+    }
+  }, [searchCrypto]);
 
   return (
     <div className={Styles.outerDiv}>

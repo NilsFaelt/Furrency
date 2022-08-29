@@ -9,14 +9,16 @@ interface Currencys {
     getValue: number | null,
     fromRate:string,
     id: string | null
+    crypto:boolean
+    
 }
-const currId = nanoid()
+
 
 export const addToCartSlice = createSlice({
 
     name: "addToCart",
     initialState:{
-       currencys:<Currencys[] > [{fromRate:'USD', getValue: null, symbol:'Your Cart', toPay:0, id: null}]
+       currencys:<Currencys[] > [{fromRate:'USD', getValue: null, symbol:'Your Cart', toPay:0, id: null, crypto:true}]
     },
     reducers:{
         addCurrency: (state, action)=>{

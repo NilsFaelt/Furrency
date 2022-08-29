@@ -1,7 +1,8 @@
 import { Button } from "@mui/material";
 import Styles from "./cryproCard.module.css";
 import { useDispatch } from "react-redux";
-import { removeAll } from "../../../redux/addToCart";
+import { addCurrency, removeAll } from "../../../redux/addToCart";
+import { nanoid } from "nanoid";
 
 interface Crypto {
   asset_id_base: string;
@@ -18,10 +19,18 @@ const CryptoCard: React.FC<Props> = ({ crypto }) => {
   const rate = crypto?.rate ? crypto?.rate * 0.04 : null;
 
   const addToCart = () => {
-    console.log("hej i func");
-    dispatch(removeAll());
+    dispatch(
+      addCurrency({
+        fromRate: "USD",
+        toPay: crypto?.rate.toFixed(2),
+        symbol: crypto?.asset_id_base,
+        value: crypto?.rate.toFixed(2),
+        id: nanoid(),
+        crypto: true,
+      })
+    );
   };
-
+  console.log(crypto);
   return (
     <div className={Styles.container}>
       <div className={Styles.titleDiv}>
@@ -37,7 +46,7 @@ const CryptoCard: React.FC<Props> = ({ crypto }) => {
           <p>Total fee: {crypto?.rate ? rate?.toFixed(2) : 0} dolar</p>
         </div>
       </div>
-      <Button onClick={addToCart} id='btnCrypto'>
+      <Button onClick={() => addToCart()} id='btnCrypto'>
         Add to cart
       </Button>
     </div>

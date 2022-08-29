@@ -10,6 +10,7 @@ interface Currencys {
   getValue: number;
   fromRate: string;
   id: string;
+  crypto: boolean;
 }
 
 interface Props {
@@ -18,13 +19,16 @@ interface Props {
 
 const DisplayItems: React.FC<Props> = ({ item }) => {
   const toPay = item.toPay * 1.04;
+  const exchangedToPay = item.toPay * 0.04;
   const dispatch = useDispatch();
   const removeItem = (id: string) => {
     dispatch(removeCurrency(id));
   };
+
   return (
     <div className={Styles.displayContainer}>
       <div className={Styles.textDiv}>
+        {item.crypto ? <p className={Styles.crypto}>CRYPTO</p> : null}
         <p className={Styles.text}>
           Purchae: {item.toPay} {item.symbol}
         </p>
@@ -38,9 +42,8 @@ const DisplayItems: React.FC<Props> = ({ item }) => {
       <div className={Styles.rateDiv}>
         <p>Exchange rate: 4%</p>
         <p>
-          Exchange fee: {item.toPay * 0.04} {item.fromRate}{" "}
+          Exchange fee: {exchangedToPay.toFixed(2)} {item.fromRate}{" "}
         </p>
-        <p></p>
       </div>
       <XCircleIcon
         onClick={() => removeItem(item.id)}
