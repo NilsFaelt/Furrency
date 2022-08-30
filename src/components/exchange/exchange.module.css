@@ -27,6 +27,18 @@
     margin-bottom: 1vh;
     font-size: calc(12px + 0.3vw);
 }
+.inputRed{
+    width: clamp(120px, 10vw, 10vw);
+    height: clamp(30px, 1vh, 4vh);
+    border-radius: 15px;
+    border: none;
+    text-align: center;
+    border: 2px solid rgba(209, 0, 0, 0.816);
+    margin-right: 2vw;
+    margin-left: 1vw;
+    margin-bottom: 1vh;
+    font-size: calc(12px + 0.3vw);
+}
 .input:focus{
     outline: none;
     box-shadow: 1px 1px 10px white;

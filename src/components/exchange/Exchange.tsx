@@ -24,9 +24,10 @@ const Exchange = () => {
   const [exchangedRate, setExchangedRate] = useState<ExchangedRate | null>(
     null
   );
+  const [redAmount, setRedAmount] = useState<boolean>(false);
   const [fromRate, setFromRate] = useState("USD");
   const [toRate, setToRate] = useState("NOK");
-  const [amount, setAmount] = useState<any>(1);
+  const [amount, setAmount] = useState<any>(0);
   const [toogleInfo, setToogleInfo] = useState<boolean>(false);
   const [currenccyRollOutFrom, setCurrenccyRollOutFrom] = useState<
     CurrencyCodes[] | null
@@ -80,15 +81,20 @@ const Exchange = () => {
   };
 
   const addToCart = () => {
-    dispatch(
-      addCurrency({
-        fromRate: fromRate,
-        toPay: amount,
-        symbol: toRate,
-        value: money?.toFixed(2),
-        id: nanoid(),
-      })
-    );
+    if (amount > 0) {
+      setRedAmount(false);
+      dispatch(
+        addCurrency({
+          fromRate: fromRate,
+          toPay: amount,
+          symbol: toRate,
+          value: money?.toFixed(2),
+          id: nanoid(),
+        })
+      );
+    } else {
+      setRedAmount(true);
+    }
   };
 
   useEffect(() => {
@@ -156,10 +162,11 @@ const Exchange = () => {
         <div>
           <input
             onChange={(e) => setAmount(e.target.value)}
-            className={Styles.input}
+            className={redAmount ? Styles.inputRed : Styles.input}
             type='number'
             placeholder='Amount'
           />
+          {redAmount ? <p style={{ color: "red" }}>Please add amount</p> : null}
         </div>
         {currenccyRollOutTo && toRate && toRate.length !== 3 ? (
           <div className={Styles.countryCodesTo}>

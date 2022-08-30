@@ -14,7 +14,6 @@ function App() {
   const [flagUrl, setFlagUrl] = useState<string>("");
   const [choseFlag, setChooseFlag] = useState<string | null>("nor");
   const [toogleMenu, setToogleMenu] = useState<boolean>(false);
-
   const fetchFlag = async () => {
     try {
       const response = await axios.get(
