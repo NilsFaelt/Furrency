@@ -9,7 +9,8 @@ interface Currencys {
     getValue: number | null,
     fromRate:string,
     id: string | null
-    crypto:boolean
+    crypto:boolean,
+    iGet:number|null
     
 }
 
@@ -18,7 +19,7 @@ export const addToCartSlice = createSlice({
 
     name: "addToCart",
     initialState:{
-       currencys:<Currencys[] > [{fromRate:'USD', getValue: null, symbol:'Your Cart', toPay:0, id: null, crypto:true}]
+       currencys:<Currencys[] > [{fromRate:'USD', getValue: null, symbol:'Your Cart', toPay:0, id: null, crypto:true, iGet:null}]
     },
     reducers:{
         addCurrency: (state, action)=>{

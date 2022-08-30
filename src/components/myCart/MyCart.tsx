@@ -13,6 +13,7 @@ interface Currencys {
   fromRate: string;
   id: string;
   crypto: boolean;
+  iGet: number;
 }
 
 interface Props {

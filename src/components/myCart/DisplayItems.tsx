@@ -11,6 +11,7 @@ interface Currencys {
   fromRate: string;
   id: string;
   crypto: boolean;
+  iGet: number | null;
 }
 
 interface Props {
@@ -30,7 +31,7 @@ const DisplayItems: React.FC<Props> = ({ item }) => {
       <div className={Styles.textDiv}>
         {item.crypto ? <p className={Styles.crypto}>CRYPTO</p> : null}
         <p className={Styles.text}>
-          Purchase: {item.toPay} {item.symbol}
+          Purchase: {item.iGet} {item.symbol}
         </p>
         <p className={Styles.textUnder}>
           {" "}
