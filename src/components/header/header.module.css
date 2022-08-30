@@ -1,4 +1,8 @@
 .container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     width: 100vw;
     height: clamp(90px, 15vh, 90px);
     background-color:rgb(250, 213, 47) ;
@@ -13,7 +17,23 @@
     cursor: pointer;
     z-index: 3;
 }
-
+.nav{
+    margin-right: 8vw;
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
+}
+.link{
+    color: black;
+    font-size: calc(8px + 0.8vw);
+    font-family: sans-serif ;
+    font-weight: bold;
+    text-decoration: none;
+}
+.link:hover{
+    color: white;
+  
+}
 .copuntryDiv{
     display: flex;
     flex-direction: row;
@@ -79,5 +99,12 @@
     .itemInCartAmount{
         top: 17vh;
     
+    }
+}
+@media only screen and (max-width: 670px) {
+    nav {
+    opacity: 0;
+    pointer-events: none;
+
     }
   }
