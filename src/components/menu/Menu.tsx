@@ -22,6 +22,9 @@ const Menu: React.FC<Props> = ({ setToogleMenu }) => {
           <Link className={Styles.li} to={"/kryptoexchange"}>
             <li className={Styles.li}>Crypto Exchange</li>
           </Link>
+          <Link className={Styles.li} to={"/kryptoexchange"}>
+            <li className={Styles.li}>Travel Insurance</li>
+          </Link>
         </ul>
       </nav>
     </div>

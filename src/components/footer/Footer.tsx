@@ -29,7 +29,9 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <div className={Styles.rightInfoDiv}></div>
+        <div className={Styles.rightInfoDiv}>
+          <p className={Styles.sideTitle}>FURENCY EXCHANGE</p>
+        </div>
       </div>
       <div className={Styles.lowerDiv}>
         <p className={Styles.footerText}>
