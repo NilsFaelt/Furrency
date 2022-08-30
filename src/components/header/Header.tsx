@@ -35,7 +35,6 @@ const Header: React.FC<Props> = ({
   const displayItemsAmountInCart = allItems.filter((item) => {
     if (item.toPay > 0) return item;
   });
-  console.log(displayItemsAmountInCart, " allllllll items");
 
   return (
     <header className={Styles.container}>

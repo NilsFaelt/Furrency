@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import CryptoCard from "./cryptoCard/CryptoCard";
 import cryptoCodes from "../../json/cryptoCodes.json";
 import { useDispatch, useSelector } from "react-redux";
+import AddedToCartPopUp from "../addedToCartPopUP/AddedToCartPopUp";
 
 interface Crypto {
   asset_id_base: string;
@@ -19,7 +20,7 @@ interface FilteredCodes {
 
 const KryptoExchange = () => {
   const currencys = useSelector((state: any) => state.cart);
-  console.log(currencys.currencys);
+  const [addedToCart, setAddedToCart] = useState<Boolean>(false);
   const [crypto, setCrypto] = useState<Crypto | null>(null);
   const [filteredCryptoCodes, setFilteredCryptoCodes] = useState<
     FilteredCodes[] | null
@@ -57,11 +58,17 @@ const KryptoExchange = () => {
     filterCryptoCodes();
   }, [searchCrypto]);
 
-  // useEffect(() => {
-  //   if (searchCrypto.length >= 3) {
-  //     fetchCryptoRates();
-  //   }
-  // }, [searchCrypto]);
+  useEffect(() => {
+    if (searchCrypto.length >= 3) {
+      fetchCryptoRates();
+    }
+  }, [searchCrypto]);
+
+  if (addedToCart) {
+    setTimeout(() => {
+      setAddedToCart(false);
+    }, 1500);
+  }
 
   return (
     <div className={Styles.outerDiv}>
@@ -91,8 +98,9 @@ const KryptoExchange = () => {
       )}
 
       <div>
-        <CryptoCard crypto={crypto} />
+        <CryptoCard setAddedToCart={setAddedToCart} crypto={crypto} />
       </div>
+      {addedToCart ? <AddedToCartPopUp /> : null}
     </div>
   );
 };

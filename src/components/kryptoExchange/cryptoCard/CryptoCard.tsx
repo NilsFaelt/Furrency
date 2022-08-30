@@ -3,6 +3,8 @@ import Styles from "./cryproCard.module.css";
 import { useDispatch } from "react-redux";
 import { addCurrency, removeAll } from "../../../redux/addToCart";
 import { nanoid } from "nanoid";
+import { useState } from "react";
+import AddedToCartPopUp from "../../addedToCartPopUP/AddedToCartPopUp";
 
 interface Crypto {
   asset_id_base: string;
@@ -12,25 +14,29 @@ interface Crypto {
 }
 interface Props {
   crypto: Crypto | null;
+  setAddedToCart: (toogle: boolean) => void;
 }
 
-const CryptoCard: React.FC<Props> = ({ crypto }) => {
+const CryptoCard: React.FC<Props> = ({ crypto, setAddedToCart }) => {
   const dispatch = useDispatch();
   const rate = crypto?.rate ? crypto?.rate * 0.04 : null;
 
   const addToCart = () => {
-    dispatch(
-      addCurrency({
-        fromRate: "USD",
-        toPay: crypto?.rate.toFixed(2),
-        symbol: crypto?.asset_id_base,
-        value: crypto?.rate.toFixed(2),
-        id: nanoid(),
-        crypto: true,
-      })
-    );
+    if (crypto?.rate) {
+      setAddedToCart(true);
+      dispatch(
+        addCurrency({
+          fromRate: "USD",
+          toPay: crypto?.rate.toFixed(2),
+          symbol: crypto?.asset_id_base,
+          value: crypto?.rate.toFixed(2),
+          id: nanoid(),
+          crypto: true,
+        })
+      );
+    }
   };
-  console.log(crypto);
+
   return (
     <div className={Styles.container}>
       <div className={Styles.titleDiv}>
