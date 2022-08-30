@@ -85,7 +85,20 @@ const Exchange = () => {
   };
 
   const addToCart = () => {
-    if (amount > 0 && fromRate.length === 3 && toRate.length === 3) {
+    const checkCodesFrom = currencyCodes.filter(
+      (code) => fromRate === code.code
+    );
+    const checkCodesTo = currencyCodes.filter((code) => toRate === code.code);
+
+    console.log(checkCodesFrom, "from,", checkCodesTo, "to");
+
+    if (
+      amount > 0 &&
+      fromRate.length === 3 &&
+      toRate.length === 3 &&
+      checkCodesFrom.length === 1 &&
+      checkCodesFrom.length === 1
+    ) {
       setRedAmount(false);
       setaddedToCartPopUp(true);
       setFromRateRed(false);
@@ -100,19 +113,19 @@ const Exchange = () => {
         })
       );
     }
-    if (amount === 0) {
+    if (!amount) {
       setRedAmount(true);
     }
-    if (fromRate.length !== 3) {
+    if (fromRate.length !== 3 || checkCodesFrom.length !== 1) {
       setFromRateRed(true);
     }
-    if (fromRate.length === 3) {
+    if (fromRate.length === 3 && checkCodesFrom.length === 1) {
       setFromRateRed(false);
     }
-    if (toRate.length !== 3) {
+    if (toRate.length !== 3 || checkCodesTo.length !== 1) {
       setToRateRed(true);
     }
-    if (toRate.length === 3) {
+    if (toRate.length === 3 && checkCodesTo.length === 1) {
       setToRateRed(false);
     }
   };
