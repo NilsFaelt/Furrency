@@ -9,6 +9,7 @@ import payPal from "../../assets/payPal.svg";
 import { useDispatch } from "react-redux";
 import { addCurrency } from "../../redux/addToCart";
 import { nanoid } from "nanoid";
+import AddedToCartPopUp from "../addedToCartPopUP/AddedToCartPopUp";
 
 interface ExchangedRate {
   rate: number;
@@ -25,6 +26,7 @@ const Exchange = () => {
     null
   );
   const [redAmount, setRedAmount] = useState<boolean>(false);
+  const [addedToCartPopUp, setaddedToCartPopUp] = useState<boolean>(false);
   const [fromRate, setFromRate] = useState("USD");
   const [toRate, setToRate] = useState("NOK");
   const [amount, setAmount] = useState<any>(0);
@@ -83,6 +85,7 @@ const Exchange = () => {
   const addToCart = () => {
     if (amount > 0) {
       setRedAmount(false);
+      setaddedToCartPopUp(true);
       dispatch(
         addCurrency({
           fromRate: fromRate,
@@ -103,6 +106,12 @@ const Exchange = () => {
   useEffect(() => {
     filterCurrencyCodeTo();
   }, [toRate]);
+
+  if (addedToCartPopUp) {
+    setTimeout(() => {
+      setaddedToCartPopUp(false);
+    }, 1500);
+  }
 
   return (
     <div className={Styles.outerDiv}>
@@ -233,6 +242,7 @@ const Exchange = () => {
           Us dollar = usd, <br /> Euro = eur
         </p>
       ) : null}
+      {addedToCartPopUp ? <AddedToCartPopUp /> : null}
     </div>
   );
 };
