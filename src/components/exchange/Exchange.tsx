@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, tooltipClasses } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Styles from "./exchange.module.css";
@@ -97,7 +97,8 @@ const Exchange = () => {
       fromRate.length === 3 &&
       toRate.length === 3 &&
       checkCodesFrom.length === 1 &&
-      checkCodesTo.length === 1
+      checkCodesTo.length === 1 &&
+      amount > -1
     ) {
       setRedAmount(false);
       setaddedToCartPopUp(true);
@@ -114,8 +115,14 @@ const Exchange = () => {
         })
       );
     }
+    if (amount < 0) {
+      setRedAmount(true);
+    }
     if (!amount) {
       setRedAmount(true);
+    }
+    if (amount && amount > 0) {
+      setRedAmount(false);
     }
     if (fromRate.length !== 3 || checkCodesFrom.length !== 1) {
       setFromRateRed(true);
@@ -207,6 +214,7 @@ const Exchange = () => {
             className={redAmount ? Styles.inputRed : Styles.input}
             type='number'
             placeholder='Amount'
+            min={0}
           />
           {redAmount ? <p style={{ color: "red" }}>Please add amount</p> : null}
         </div>
