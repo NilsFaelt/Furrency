@@ -41,6 +41,11 @@ const MyCart: React.FC<Props> = ({ setToogleCart }) => {
       />
 
       <div className={Styles.displayItemsDiv}>
+        <div className={Styles.explainTextDiv}>
+          <p>Price</p>
+          <p>Fee</p>
+        </div>
+        <hr className={Styles.hr} />
         <h3 style={{ textAlign: "center" }}>
           {displayItemsAmountInCart.length === 0 ? <p>Cart Empty</p> : null}
         </h3>

@@ -57,11 +57,11 @@ const KryptoExchange = () => {
     filterCryptoCodes();
   }, [searchCrypto]);
 
-  useEffect(() => {
-    if (searchCrypto.length >= 3) {
-      fetchCryptoRates();
-    }
-  }, [searchCrypto]);
+  // useEffect(() => {
+  //   if (searchCrypto.length >= 3) {
+  //     fetchCryptoRates();
+  //   }
+  // }, [searchCrypto]);
 
   return (
     <div className={Styles.outerDiv}>

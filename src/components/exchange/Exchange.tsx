@@ -28,6 +28,8 @@ const Exchange = () => {
   const [redAmount, setRedAmount] = useState<boolean>(false);
   const [addedToCartPopUp, setaddedToCartPopUp] = useState<boolean>(false);
   const [fromRate, setFromRate] = useState("USD");
+  const [fromRateRed, setFromRateRed] = useState<boolean>(false);
+  const [toRateRed, setToRateRed] = useState<boolean>(false);
   const [toRate, setToRate] = useState("NOK");
   const [amount, setAmount] = useState<any>(0);
   const [toogleInfo, setToogleInfo] = useState<boolean>(false);
@@ -83,9 +85,11 @@ const Exchange = () => {
   };
 
   const addToCart = () => {
-    if (amount > 0) {
+    if (amount > 0 && fromRate.length === 3 && toRate.length === 3) {
       setRedAmount(false);
       setaddedToCartPopUp(true);
+      setFromRateRed(false);
+      setToRateRed(false);
       dispatch(
         addCurrency({
           fromRate: fromRate,
@@ -95,8 +99,21 @@ const Exchange = () => {
           id: nanoid(),
         })
       );
-    } else {
+    }
+    if (amount === 0) {
       setRedAmount(true);
+    }
+    if (fromRate.length !== 3) {
+      setFromRateRed(true);
+    }
+    if (fromRate.length === 3) {
+      setFromRateRed(false);
+    }
+    if (toRate.length !== 3) {
+      setToRateRed(true);
+    }
+    if (toRate.length === 3) {
+      setToRateRed(false);
     }
   };
 
@@ -124,11 +141,12 @@ const Exchange = () => {
           <input
             value={fromRate}
             onChange={(e) => setFromRate(e.target.value.toUpperCase())}
-            className={Styles.input}
+            className={fromRateRed ? Styles.inputRed : Styles.input}
             type='text'
             placeholder='currency code'
             maxLength={3}
           />
+          {fromRateRed ? <p style={{ color: "red" }}>Please add code</p> : null}
         </div>
         <div className={Styles.searchDiv}>
           <label style={{ color: "white" }} htmlFor=''>
@@ -137,11 +155,12 @@ const Exchange = () => {
           <input
             value={toRate}
             onChange={(e) => setToRate(e.target.value.toUpperCase())}
-            className={Styles.input}
+            className={toRateRed ? Styles.inputRed : Styles.input}
             type='text'
             placeholder='currency code'
             maxLength={3}
           />
+          {toRateRed ? <p style={{ color: "red" }}>Please add code</p> : null}
         </div>
         <p
           onMouseOver={() => setToogleInfo(true)}

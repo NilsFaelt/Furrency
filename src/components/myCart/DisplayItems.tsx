@@ -30,9 +30,9 @@ const DisplayItems: React.FC<Props> = ({ item }) => {
       <div className={Styles.textDiv}>
         {item.crypto ? <p className={Styles.crypto}>CRYPTO</p> : null}
         <p className={Styles.text}>
-          Purchae: {item.toPay} {item.symbol}
+          Purchase: {item.toPay} {item.symbol}
         </p>
-        <p className={Styles.text}>
+        <p className={Styles.textUnder}>
           {" "}
           To pay: {toPay.toFixed(2)} {item.fromRate}
         </p>

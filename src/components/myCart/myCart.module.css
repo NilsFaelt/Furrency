@@ -73,6 +73,10 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-top: 1vh;
 }
+.textUnder{
+    margin-top: 2vh;
+    font-size: calc(12px + 0.3vw);
+}
 .textDiv{
     width: clamp(160px, 25vw, 25vw);
 }
@@ -89,4 +93,12 @@
     margin-top: 0.5vh;
     margin-left: clamp( 15px, 1vw, 9vw);
     width:clamp(100px, 8vw, 10vw) ;
+}
+.explainTextDiv{
+    font-size: calc(10px + 0.5vw);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: clamp(270px, 35vw, 35vw);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
 }
