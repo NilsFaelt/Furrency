@@ -97,7 +97,7 @@ const Exchange = () => {
       fromRate.length === 3 &&
       toRate.length === 3 &&
       checkCodesFrom.length === 1 &&
-      checkCodesFrom.length === 1
+      checkCodesTo.length === 1
     ) {
       setRedAmount(false);
       setaddedToCartPopUp(true);
