@@ -17,7 +17,7 @@
     cursor: pointer;
     z-index: 3;
 }
-.nav{
+.navInHeader{
     margin-right: 8vw;
     display: flex;
     flex-direction: row;
