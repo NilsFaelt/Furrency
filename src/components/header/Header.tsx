@@ -51,7 +51,7 @@ const Header: React.FC<Props> = ({
         onClick={() => setToogleMenu(!toogleMenu)}
         className={Styles.burger}
       />
-      <nav className={Styles.nav}>
+      <nav className={Styles.navInHeader}>
         <Link className={Styles.link} to={"/"}>
           Currency Exchange
         </Link>
