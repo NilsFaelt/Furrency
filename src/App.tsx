@@ -8,6 +8,7 @@ import Menu from "./components/menu/Menu";
 import Footer from "./components/footer/Footer";
 import KryptoExchange from "./components/kryptoExchange/KryptoExchange";
 import MyCart from "./components/myCart/MyCart";
+import TravelInsuarnce from "./components/travelInsurance/TravelInsuarnce";
 
 function App() {
   const [toogleCart, setToogleCart] = useState<boolean>(false);
@@ -54,6 +55,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Exchange />} />
           <Route path='/kryptoexchange' element={<KryptoExchange />} />
+          <Route path='/travelinsurance' element={<TravelInsuarnce />} />
         </Routes>
       </div>
 
