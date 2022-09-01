@@ -31,6 +31,7 @@ const CryptoCard: React.FC<Props> = ({ crypto, setAddedToCart }) => {
           symbol: crypto?.asset_id_base,
           value: crypto?.rate.toFixed(2),
           id: nanoid(),
+          iGet: crypto.rate,
           crypto: true,
         })
       );
