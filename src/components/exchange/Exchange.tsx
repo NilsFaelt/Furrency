@@ -111,7 +111,7 @@ const Exchange = () => {
           symbol: toRate,
           value: money?.toFixed(2),
           id: nanoid(),
-          iGet: money?.toFixed(2),
+          iGet: money,
         })
       );
     }
