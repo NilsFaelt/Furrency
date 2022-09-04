@@ -5,6 +5,7 @@ import DisplayItems from "./DisplayItems";
 import Styles from "./myCart.module.css";
 import { removeAll } from "../../redux/addToCart";
 import { XCircleIcon } from "@heroicons/react/outline";
+import { useEffect } from "react";
 
 interface Currencys {
   toPay: number;
@@ -14,6 +15,7 @@ interface Currencys {
   id: string;
   crypto: boolean;
   iGet: number;
+  rate: number;
 }
 
 interface Props {

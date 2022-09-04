@@ -3,6 +3,10 @@ import { useState } from "react";
 import Styles from "./travelInsurance.module.css";
 
 const TravelInsuarnce = () => {
+  const [toogleImgInput, setToogleImgInput] = useState<boolean>(false);
+  const [changeImg, setchangeImg] = useState<string>(
+    "https://images.unsplash.com/photo-1547499417-29204c97a299?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+  );
   const [flipCard, setFlipCard] = useState<boolean>(true);
   const [name, setName] = useState("");
   const [familyName, setFamilyName] = useState("");
@@ -11,8 +15,25 @@ const TravelInsuarnce = () => {
   return (
     <div className={Styles.container}>
       <h2 className={Styles.title}>Travel Insurance</h2>
+      <p
+        onClick={() => setToogleImgInput(!toogleImgInput)}
+        className={Styles.changeImgText}
+      >
+        Change background?
+      </p>
+      <form action=''>
+        <input
+          placeholder='Paste Url to img'
+          type='text'
+          onChange={(e) => setchangeImg(e.target.value)}
+        />
+      </form>
       {flipCard ? (
-        <div onClick={() => setFlipCard(!flipCard)} className={Styles.card}>
+        <div
+          style={{ backgroundImage: `url(${changeImg})` }}
+          onClick={() => setFlipCard(!flipCard)}
+          className={Styles.card}
+        >
           <h2>My Insurance card</h2>
           <div className={Styles.infoDivContaienrWrapper}>
             <div>
@@ -30,12 +51,16 @@ const TravelInsuarnce = () => {
           </div>
         </div>
       ) : (
-        <div onClick={() => setFlipCard(!flipCard)} className={Styles.card}>
+        <div
+          style={{ backgroundImage: `url(${changeImg})` }}
+          onClick={() => setFlipCard(!flipCard)}
+          className={Styles.card}
+        >
           <div className={Styles.infoDivContaienrWrapper}>
             <div className={Styles.imgDiv}>
               <img
-                className={Styles.img}
                 src='https://www.investopedia.com/thmb/KfGSwVyV8mOdTHFxL1T0aS3xpE8=/1148x1148/smart/filters:no_upscale()/qr-code-bc94057f452f4806af70fd34540f72ad.png'
+                className={Styles.img}
                 alt=''
               />
             </div>

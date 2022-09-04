@@ -72,6 +72,8 @@
     cursor: pointer;
 }
 .text{
+    display: flex;
+    flex-direction: row;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-top: 1vh;
 }
@@ -103,4 +105,23 @@
     justify-content: space-between;
     width: clamp(270px, 35vw, 35vw);
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+}
+.form{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.input{
+    font-size: calc(12px + 0.3vw);
+    border: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 1vh;
+}
+.input:focus{
+    border: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    outline: none;
+}
+.cogIcon{
+    margin-left: 1vw;
+    width: clamp(15px, 1.5vw, 2vw);
+    cursor: pointer;
 }

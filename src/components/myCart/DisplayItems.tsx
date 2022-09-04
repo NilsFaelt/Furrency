@@ -1,8 +1,10 @@
-import React from "react";
+import React, { FormEvent, useEffect, useRef, useState } from "react";
 import Styles from "./myCart.module.css";
 import { XCircleIcon } from "@heroicons/react/outline";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { removeCurrency } from "../../redux/addToCart";
+import { CogIcon } from "@heroicons/react/outline";
+import { updateAmount } from "../../redux/addToCart";
 
 interface Currencys {
   toPay: number;
@@ -11,7 +13,8 @@ interface Currencys {
   fromRate: string;
   id: string;
   crypto: boolean;
-  iGet: number | null;
+  iGet: number;
+  rate: number;
 }
 
 interface Props {
@@ -19,6 +22,12 @@ interface Props {
 }
 
 const DisplayItems: React.FC<Props> = ({ item }) => {
+  const [toogleinput, setToogleInput] = useState<boolean>(false);
+  const [changeValue, setChangeValue] = useState<any>(item.iGet);
+  const [igetState, setIgetState] = useState(item.iGet);
+  const inputRef: any = useRef(null);
+  const value = item.iGet / item.rate;
+  console.log(value, "valllle");
   const toPay = item.toPay * 1.04;
   const exchangedToPay = item.toPay * 0.04;
   const dispatch = useDispatch();
@@ -26,14 +35,55 @@ const DisplayItems: React.FC<Props> = ({ item }) => {
     dispatch(removeCurrency(id));
   };
 
+  console.log(item);
+  const updateValue = (e: FormEvent) => {
+    e.preventDefault();
+    dispatch(
+      updateAmount({
+        id: item.id,
+        amount: changeValue,
+      })
+    );
+    inputRef.current.focus();
+    setToogleInput(false);
+  };
+  console.log(inputRef);
+
+  useEffect(() => {
+    setIgetState(item.iGet);
+    console.log("hej");
+  }, [updateValue]);
+
   return (
     <div className={Styles.displayContainer}>
       <div className={Styles.textDiv}>
         {item.crypto ? <p className={Styles.crypto}>CRYPTO</p> : null}
-        <p className={Styles.text}>
-          Purchase: {item.iGet}
-          {item.symbol}
-        </p>
+        {toogleinput ? (
+          <form
+            className={Styles.form}
+            onSubmit={(e) => updateValue(e)}
+            action=''
+          >
+            Purchase:{" "}
+            <input
+              onChange={(e) => setChangeValue(e.target.value)}
+              ref={inputRef}
+              value={changeValue}
+              className={Styles.input}
+              type='number'
+            />{" "}
+            {item.symbol}
+          </form>
+        ) : (
+          <p className={Styles.text}>
+            Purchase: {igetState}
+            {item.symbol}
+            <CogIcon
+              className={Styles.cogIcon}
+              onClick={() => setToogleInput(!toogleinput)}
+            />
+          </p>
+        )}
         <p className={Styles.textUnder}>
           {" "}
           To pay: {toPay.toFixed(2)} {item.fromRate}

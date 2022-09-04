@@ -112,6 +112,7 @@ const Exchange = () => {
           value: money?.toFixed(2),
           id: nanoid(),
           iGet: money,
+          rate: exchangedRate?.rate,
         })
       );
     }
