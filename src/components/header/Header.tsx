@@ -58,6 +58,9 @@ const Header: React.FC<Props> = ({
         <Link className={Styles.link} to={"/kryptoexchange"}>
           Crypto Exchange
         </Link>
+        <Link className={Styles.link} to={"/travelinsurance"}>
+          Travel Insurance
+        </Link>
       </nav>
       <div className={Styles.copuntryDiv}>
         <input

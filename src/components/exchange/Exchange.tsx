@@ -43,6 +43,8 @@ const Exchange = () => {
     ? exchangedRate.rate * amount
     : null;
 
+  const totalToPay = amount * 1.04;
+
   const switchRates = () => {
     const fromHolder = fromRate;
     const toHolder = toRate;
@@ -263,7 +265,7 @@ const Exchange = () => {
               Exchange Rate Percent: 4%
             </p>
             <p style={{ marginTop: "2vh" }}>
-              Total to pay: {amount * 1.04}.00{" "}
+              Total to pay: {totalToPay.toFixed(2)}{" "}
               {currenccyRollOutFrom?.length === 1
                 ? currenccyRollOutFrom[0]?.symbol
                 : null}

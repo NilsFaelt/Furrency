@@ -74,8 +74,8 @@
 .text{
     display: flex;
     flex-direction: row;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-top: 1vh;
+    font-size: calc(12px + 0.3vw);
 }
 .textUnder{
     margin-top: 2vh;
@@ -107,21 +107,33 @@
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
 }
 .form{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: calc(12px + 0.3vw);
 }
 .input{
     font-size: calc(12px + 0.3vw);
     border: none;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-top: 1vh;
 }
 .input:focus{
     border: none;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: calc(12px + 0.3vw);
     outline: none;
 }
 .cogIcon{
     margin-left: 1vw;
-    width: clamp(15px, 1.5vw, 2vw);
+    width: clamp(15px, 1vw, 2vw);
     cursor: pointer;
+}
+
+@media only screen and (max-width: 500px) {
+    .rateDiv{
+       padding-left: 2.5vw;
+      
+    }
+    .cogIcon{
+        margin-bottom: 2vh;
+        margin-left: 1vw;
+        width: clamp(15px, 1vw, 2vw);
+        cursor: pointer;
+    }
 }
