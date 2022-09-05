@@ -66,6 +66,12 @@
     margin-top: 3vh;
     color:white;
 }
+.rateTitle{
+    font-size: calc(10px + 0.5vw);
+}
+.innerRateText{
+    font-size: calc(8px + 0.5vw);
+}
 
 .infoText{
     width: clamp(150px, 20vw, 20vw);
@@ -177,8 +183,9 @@
     border-radius: 10px;
     border: 1px solid black;
     padding: 1vw;
-    margin-top: 1vh;
+    margin-top: 2vh;
     font-size: calc(8px + 0.3vw);
+  
 }
 
 

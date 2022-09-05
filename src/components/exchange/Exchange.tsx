@@ -246,9 +246,9 @@ const Exchange = () => {
           </div>
         </div>
         <div className={Styles.currencyInfoDiv}>
-          <p style={{ fontFamily: "serif" }}>Exchange Rate:</p>
+          <p className={Styles.rateTitle}>Exchange Rate:</p>
           <hr style={{ width: "100%", marginBottom: "2vh" }} />
-          <div style={{ textAlign: "start" }}>
+          <div className={Styles.innerRateText} style={{ textAlign: "start" }}>
             I Pay: {amount ? amount : 0}.00{" "}
             {currenccyRollOutFrom?.length === 1
               ? currenccyRollOutFrom[0]?.symbol + " "
@@ -263,7 +263,7 @@ const Exchange = () => {
               Exchange Rate Percent: 4%
             </p>
             <p style={{ marginTop: "2vh" }}>
-              Total to pay: {amount * 1.04}{" "}
+              Total to pay: {amount * 1.04}.00{" "}
               {currenccyRollOutFrom?.length === 1
                 ? currenccyRollOutFrom[0]?.symbol
                 : null}
