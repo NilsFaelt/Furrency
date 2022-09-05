@@ -22,7 +22,6 @@
 
 }
 .changeImgText{
-    cursor: pointer;
     text-decoration: underline;
 }
 
@@ -74,9 +73,11 @@
 .img{
     width: clamp(40px, 3vw, 5vw);
     border-radius: 2px;
-  
-
-  
+}
+.btnDiv{
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
 }
 
 

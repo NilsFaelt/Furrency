@@ -71,13 +71,13 @@ const DisplayItems: React.FC<Props> = ({ item }) => {
               value={changeValue}
               className={Styles.input}
               type='number'
+              step={"any"}
             />{" "}
             {item.symbol}
           </form>
         ) : (
           <p className={Styles.text}>
-            Purchase: {igetState}
-            {item.symbol}
+            Purchase: {igetState} {item.symbol}
             <CogIcon
               className={Styles.cogIcon}
               onClick={() => setToogleInput(!toogleinput)}
