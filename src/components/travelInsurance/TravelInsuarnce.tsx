@@ -1,11 +1,13 @@
 import { Button } from "@mui/material";
 import React, { FormEvent, OptionHTMLAttributes, useState } from "react";
+import calcPriceInsurance from "../../functions/calcPriceInsurance";
 import Styles from "./travelInsurance.module.css";
 
 const TravelInsuarnce: React.FC = () => {
-  const [insurancePerDay, setInsurancePerDay] = useState<number>(0);
+  const [length, setLength] = useState<number>(0);
   const [country, setCountry] = useState<string>("");
   const [typeOfTrip, setTypeOfTrip] = useState<string>("");
+  const [health, setHealth] = useState<string>("");
   const [nextStep, setNextStep] = useState<boolean>(true);
   const [toogleImgInput, setToogleImgInput] = useState<boolean>(false);
   const [changeImg, setchangeImg] = useState<string>(
@@ -24,6 +26,15 @@ const TravelInsuarnce: React.FC = () => {
   const getValueTrip = (e: any) => {
     e.preventDefault();
     setTypeOfTrip(e.target.value);
+  };
+  const getValueHealth = (e: any) => {
+    e.preventDefault();
+    setHealth(e.target.value);
+  };
+
+  const geytInsurancePrice = () => {
+    const test = calcPriceInsurance(country, typeOfTrip, health, length);
+    console.log(test);
   };
 
   return (
@@ -135,14 +146,14 @@ const TravelInsuarnce: React.FC = () => {
               name=''
               id=''
             >
-              <option value='Europe'>Europe</option>
-              <option value='Africa'>Africa</option>
-              <option value='Russia'>Russia</option>
-              <option value='Australia'>Australia</option>
-              <option value='Asia'>Asia</option>
-              <option value='NorthAmerica'>North America</option>
-              <option value='SouthAmerica'>South America</option>
-              <option value=''>Other</option>
+              <option value='0'>Europe</option>
+              <option value='3'>Africa</option>
+              <option value='3'>Russia</option>
+              <option value='2'>Australia</option>
+              <option value='2'>Asia</option>
+              <option value='1'>North America</option>
+              <option value='3'>South America</option>
+              <option value='4'>Other</option>
             </select>
             <label htmlFor=''>kind of trip?</label>
             <select
@@ -151,29 +162,33 @@ const TravelInsuarnce: React.FC = () => {
               name=''
               id=''
             >
-              <option value='Allinclusive'>All inclusive</option>
-              <option value='Adventure'>Adventure</option>
-              <option value='Backpacking'>Backpacking</option>
-              <option value='Buisness'>Buisness</option>
-              <option value='Fmaily'>Fmaily</option>
-              <option value='Other'>Other</option>
+              <option value='0'>All inclusive</option>
+              <option value='3'>Adventure</option>
+              <option value='2'>Backpacking</option>
+              <option value='0'>Buisness</option>
+              <option value='1'>Family</option>
+              <option value='4'>Other</option>
             </select>
             <label htmlFor=''>Do you have any meidcal issues?</label>
             <select
-              onChange={(e: FormEvent) => getValueTrip(e)}
+              onChange={(e: FormEvent) => getValueHealth(e)}
               className={Styles.input}
               name=''
               id=''
             >
-              <option value='Heartproblem'>No</option>
-              <option value='Heartproblem'>Heart problem</option>
-              <option value='Diabetes'>Diabetes</option>
-              <option value='Blooddisease'>Blood disease</option>
-              <option value='Mentalillnes'>Mental illnes</option>
-              <option value='Other'>Other</option>
+              <option value='0'>No</option>
+              <option value='4'>Heart problem</option>
+              <option value='3'>Diabetes</option>
+              <option value='2'>Blood disease</option>
+              <option value='2'>Mental illnes</option>
+              <option value='4'>Other</option>
             </select>
             <label htmlFor=''>Length of stay in days?</label>
-            <input className={Styles.input} type='number' />
+            <input
+              onChange={(e: any) => setLength(e.target.value)}
+              className={Styles.input}
+              type='number'
+            />
           </form>
           <div className={Styles.btnDiv}>
             <Button
@@ -183,7 +198,11 @@ const TravelInsuarnce: React.FC = () => {
             >
               BACK
             </Button>
-            <Button id='uiBtn' variant='contained'>
+            <Button
+              onClick={() => geytInsurancePrice()}
+              id='uiBtn'
+              variant='contained'
+            >
               NEXT
             </Button>
           </div>
