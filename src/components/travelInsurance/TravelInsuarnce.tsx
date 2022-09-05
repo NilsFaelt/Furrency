@@ -5,7 +5,7 @@ import Styles from "./travelInsurance.module.css";
 const TravelInsuarnce: React.FC = () => {
   const [selectedVlue, setSelecteValue] = useState<string>("");
   console.log(selectedVlue);
-  const [nextStep, setNextStep] = useState<boolean>(false);
+  const [nextStep, setNextStep] = useState<boolean>(true);
   const [toogleImgInput, setToogleImgInput] = useState<boolean>(false);
   const [changeImg, setchangeImg] = useState<string>(
     "https://images.unsplash.com/photo-1547499417-29204c97a299?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
