@@ -84,11 +84,8 @@ const DisplayItems: React.FC<Props> = ({ item }) => {
             />
           </p>
         )}
-        <p className={Styles.textUnder}>
-          {" "}
-          To pay: {toPay.toFixed(2)} {item.fromRate}
-        </p>
-
+        <p className={Styles.textUnder}> </p>
+        To pay: {toPay.toFixed(2)} {item.fromRate}
         <hr className={Styles.hr} />
       </div>
       <div className={Styles.rateDiv}>

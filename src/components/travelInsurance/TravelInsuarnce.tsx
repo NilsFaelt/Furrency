@@ -3,8 +3,9 @@ import React, { FormEvent, OptionHTMLAttributes, useState } from "react";
 import Styles from "./travelInsurance.module.css";
 
 const TravelInsuarnce: React.FC = () => {
-  const [selectedVlue, setSelecteValue] = useState<string>("");
-  console.log(selectedVlue);
+  const [insurancePerDay, setInsurancePerDay] = useState<number>(0);
+  const [country, setCountry] = useState<string>("");
+  const [typeOfTrip, setTypeOfTrip] = useState<string>("");
   const [nextStep, setNextStep] = useState<boolean>(true);
   const [toogleImgInput, setToogleImgInput] = useState<boolean>(false);
   const [changeImg, setchangeImg] = useState<string>(
@@ -18,7 +19,11 @@ const TravelInsuarnce: React.FC = () => {
 
   const getValueCountry = (e: any) => {
     e.preventDefault();
-    setSelecteValue(e.target.value);
+    setCountry(e.target.value);
+  };
+  const getValueTrip = (e: any) => {
+    e.preventDefault();
+    setTypeOfTrip(e.target.value);
   };
 
   return (
@@ -140,7 +145,12 @@ const TravelInsuarnce: React.FC = () => {
               <option value=''>Other</option>
             </select>
             <label htmlFor=''>kind of trip?</label>
-            <select className={Styles.input} name='' id=''>
+            <select
+              onChange={(e: FormEvent) => getValueTrip(e)}
+              className={Styles.input}
+              name=''
+              id=''
+            >
               <option value='Allinclusive'>All inclusive</option>
               <option value='Adventure'>Adventure</option>
               <option value='Backpacking'>Backpacking</option>
@@ -148,6 +158,22 @@ const TravelInsuarnce: React.FC = () => {
               <option value='Fmaily'>Fmaily</option>
               <option value='Other'>Other</option>
             </select>
+            <label htmlFor=''>Do you have any meidcal issues?</label>
+            <select
+              onChange={(e: FormEvent) => getValueTrip(e)}
+              className={Styles.input}
+              name=''
+              id=''
+            >
+              <option value='Heartproblem'>No</option>
+              <option value='Heartproblem'>Heart problem</option>
+              <option value='Diabetes'>Diabetes</option>
+              <option value='Blooddisease'>Blood disease</option>
+              <option value='Mentalillnes'>Mental illnes</option>
+              <option value='Other'>Other</option>
+            </select>
+            <label htmlFor=''>Length of stay in days?</label>
+            <input className={Styles.input} type='number' />
           </form>
           <div className={Styles.btnDiv}>
             <Button
