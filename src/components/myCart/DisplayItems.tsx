@@ -78,10 +78,10 @@ const DisplayItems: React.FC<Props> = ({ item }) => {
         ) : (
           <p className={Styles.text}>
             Purchase: {igetState} {item.symbol}
-            <CogIcon
+            {/* <CogIcon
               className={Styles.cogIcon}
               onClick={() => setToogleInput(!toogleinput)}
-            />
+            /> */}
           </p>
         )}
         <p className={Styles.textUnder}> </p>

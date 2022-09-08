@@ -128,7 +128,28 @@
     width: clamp(15px, 1vw, 2vw);
     cursor: pointer;
 }
-
+.cleartCartBtnDiv{
+    left: 10vw;
+    position: absolute;
+    top: 25vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 10px 10px 10px;
+    padding: 5vh;
+    width: clamp(150px, 25vw, 25vw);
+}
+.btn{
+    font-size: calc(8px + 0.5vw);
+    width: auto;
+    height: auto;
+    margin-top: 2vh;
+    color: white;
+}
 @media only screen and (max-width: 500px) {
     .rateDiv{
        padding-left: 2.5vw;

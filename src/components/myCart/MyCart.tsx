@@ -5,7 +5,7 @@ import DisplayItems from "./DisplayItems";
 import Styles from "./myCart.module.css";
 import { removeAll } from "../../redux/addToCart";
 import { XCircleIcon } from "@heroicons/react/outline";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface Currencys {
   toPay: number;
@@ -24,12 +24,23 @@ interface Props {
 
 const MyCart: React.FC<Props> = ({ setToogleCart }) => {
   const dispatch = useDispatch();
+  const [toogleClearCart, setToogleClearCart] = useState<boolean>(false);
+  const [clearCart, setClearCart] = useState<boolean>(false);
+
   const allItems: Currencys[] = useSelector(
     (state: any) => state.cart.currencys
   );
 
   const handleClearClick = () => {
+    if (allItems.length > 0) setToogleClearCart(true);
+  };
+
+  const confirmRemove = () => {
     dispatch(removeAll());
+    setToogleClearCart(false);
+  };
+  const keepItemsClick = () => {
+    setToogleClearCart(false);
   };
 
   const displayItemsAmountInCart = allItems.filter((item) => {
@@ -67,6 +78,20 @@ const MyCart: React.FC<Props> = ({ setToogleCart }) => {
         </Button>
         <Button id='btnCart'>Checkout</Button>
       </div>
+      {toogleClearCart ? (
+        <div className={Styles.cleartCartBtnDiv}>
+          <Button onClick={() => keepItemsClick()} className={Styles.btn}>
+            Keep Items
+          </Button>
+          <Button
+            onClick={() => confirmRemove()}
+            className={Styles.btn}
+            color='error'
+          >
+            Delete Items
+          </Button>
+        </div>
+      ) : null}
     </div>
   );
 };
