@@ -3,6 +3,9 @@ import React, { FormEvent, OptionHTMLAttributes, useState } from "react";
 import calcPriceInsurance from "../../functions/calcPriceInsurance";
 import Styles from "./travelInsurance.module.css";
 
+// Final step
+//breadCrumbs
+
 const TravelInsuarnce: React.FC = () => {
   const [length, setLength] = useState<number>(0);
   const [country, setCountry] = useState<string>("");

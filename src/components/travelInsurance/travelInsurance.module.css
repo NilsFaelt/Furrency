@@ -19,6 +19,7 @@
     cursor: pointer;
     margin-bottom: 2vh;
     background-size: cover;
+    box-shadow: 5px 5px 5px black;
 
 }
 .changeImgText{

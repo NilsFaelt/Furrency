@@ -32,7 +32,6 @@ export const addToCartSlice = createSlice({
             state.currencys = state.currencys.filter((item)=>item.id !== action.payload )
         },
         removeAll:(state)=>{
-            console.log('hej')
             state.currencys = []
         },
         updateAmount:(state, action)=>{
@@ -42,7 +41,7 @@ export const addToCartSlice = createSlice({
                 }
                 else return item
             })
-            console.log(state.currencys, 'tetetteet')
+            
         }
   
 
