@@ -53,6 +53,7 @@ const TravelInsuarnce: React.FC = () => {
           </p>
           <form action=''>
             <input
+              className={Styles.input}
               placeholder='Paste Url to img'
               type='text'
               onChange={(e) => setchangeImg(e.target.value)}
