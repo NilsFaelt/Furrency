@@ -40,6 +40,16 @@
     margin-bottom: 1vh;
     font-size: calc(12px + 0.3vw);
 }
+.inputRed{
+    width: clamp(120px, 10vw, 10vw);
+    height: clamp(30px, 1vh, 4vh);
+    border-radius: 15px;
+    border: none;
+    text-align: center;
+    border: 2px solid rgba(209, 0, 0, 0.816);
+    margin-bottom: 1vh;
+    font-size: calc(12px + 0.3vw);
+}
 .form{
     margin-top: 3vh;
     display: flex;
@@ -81,5 +91,10 @@
     flex-direction: row;
     gap: 2vw;
 }
-
+.finalStep{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
 
