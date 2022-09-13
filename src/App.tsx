@@ -9,28 +9,21 @@ import Footer from "./components/footer/Footer";
 import KryptoExchange from "./components/kryptoExchange/KryptoExchange";
 import MyCart from "./components/myCart/MyCart";
 import TravelInsuarnce from "./components/travelInsurance/TravelInsuarnce";
+import { fetchFlag } from "./functions/fetch/fetchFlag";
 
 function App() {
   const [toogleCart, setToogleCart] = useState<boolean>(false);
-  const [flagUrl, setFlagUrl] = useState<string>("");
+  const [flagUrl, setFlagUrl] = useState<string>("nor");
   const [choseFlag, setChooseFlag] = useState<string | null>("nor");
   const [toogleMenu, setToogleMenu] = useState<boolean>(false);
-  const fetchFlag = async () => {
-    try {
-      const response = await axios.get(
-        `https://countryflagsapi.com/svg/${choseFlag}`
-      );
-      console.log(response.config.url);
-      if (response.config.url) {
-        setFlagUrl(response.config.url);
-      }
-    } catch (err) {
-      console.log(`something wnet wrong in fecthdata, error:${err}`);
-    }
+
+  const fetchFlagWrapperFunc = async () => {
+    const flag = await fetchFlag(choseFlag);
+    flag ? setFlagUrl(flag) : null;
   };
 
   useEffect(() => {
-    fetchFlag();
+    fetchFlagWrapperFunc();
   }, [choseFlag]);
 
   return (

@@ -51,6 +51,7 @@ const Exchange = () => {
     setToRate(fromHolder);
     setFromRate(toHolder);
   };
+
   const fetchAllRAtes = async () => {
     try {
       const response = await axios.get(
@@ -62,6 +63,7 @@ const Exchange = () => {
       console.log(`something wnet wrong in fecthdata, error:${err}`);
     }
   };
+
   useEffect(() => {
     fetchAllRAtes();
   }, [fromRate, toRate]);
